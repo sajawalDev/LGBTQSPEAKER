@@ -1,0 +1,190 @@
+.ReviewsSection {
+  padding: 20px 0 50px;
+  background: #f7f8fb;
+}
+
+.Reviews {
+  display: flex;
+  gap: 40px;
+}
+
+/* ================= VIDEO ================= */
+.VideoReviews {
+  width: 50%;
+}
+
+.MainVideo video {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.VideoList {
+  margin-top: 20px;
+}
+
+.VideoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.VideoRow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+}
+
+.ThumbWrapper {
+  position: relative;
+}
+
+.ThumbWrapper img {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ThumbWrapper svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  color: white;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.VideoTime {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ================= TESTIMONIALS ================= */
+.TestimonialsReviews {
+  width: 50%;
+  background: #7a2d87;
+  color: white;
+  border-radius: 20px;
+  padding: 40px;
+  padding-bottom: 70px;
+  min-height: 360px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.TestimonialCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: fadeSlide 0.6s ease;
+}
+
+.TestimonialCard p {
+  font-size: 16px;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.Stars svg {
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+.TestimonialCard h4 {
+  margin: 0;
+}
+
+.TestimonialCard span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ================= DOTS ================= */
+.Dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.Dots span {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Dots span.active {
+  background: white;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 991px) {
+  .Reviews {
+    flex-direction: column;
+  }
+
+  .VideoReviews,
+  .TestimonialsReviews {
+    width: 100%;
+  }
+
+  .TestimonialsReviews {
+    min-height: 300px;
+    padding: 20px;
+    padding-bottom: 60px;
+  }
+
+  .TestimonialCard p {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .TestimonialsReviews {
+    min-height: 260px;
+    padding: 14px;
+    padding-bottom: 55px;
+    border-radius: 10px;
+  }
+
+  .TestimonialCard p {
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+  }
+
+  .ThumbWrapper img {
+    width: 100px;
+    height: 70px;
+  }
+}

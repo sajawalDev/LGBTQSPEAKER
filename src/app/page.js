@@ -2,12 +2,13 @@ import Head from "next/head";
 import Banner from "@/components/Home/Banner";
 import WhoIAmSection from "@/components/Home/WhoAmI";
 import Services from "@/components/Home/Services";
-import VideoTestimonials from "@/components/Home/VideoTestimonials";
 import ImagesSection from "@/components/Home/Images";
 import LatestBlogSection from "@/components/Home/LatestBlog";
 import GallerySection from "@/components/Home/Gallery";
 import FAQs from "@/components/Home/FAQs";
 import NewsLetter from "@/components/Home/NewsLetter";
+import Images from "@/components/Home/Images2";
+import Reviews from "@/components/Home/Reviews";
 export default function Home() {
   return (
     <>
@@ -20,7 +21,8 @@ export default function Home() {
       <Banner />
       <WhoIAmSection />
       <Services />
-      <VideoTestimonials />
+      <Reviews/>
+      <Images/>
       <ImagesSection />
       <LatestBlogSection />
       <GallerySection />

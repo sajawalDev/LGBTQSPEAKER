@@ -41,7 +41,7 @@ export default function HireToSpeak() {
                         }}
                         validationSchema={validationSchema}
                         onSubmit={(values, { resetForm }) => {
-                            console.log(values);
+                            // console.log(values);
                             resetForm();
                         }}
                     >

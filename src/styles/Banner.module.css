@@ -10,7 +10,7 @@
   height: 80vh;
   margin-top: 17px;
   overflow: hidden;
-  
+  perspective: 1000px; /* for smooth 3D GPU transforms */
 }
 
 .slide {
@@ -18,25 +18,28 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(0); /* GPU acceleration */
   transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform; /* hint browser to optimize */
 }
 
 .active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateZ(0);
 }
 
 .bannerImg {
   object-fit: cover;
   z-index: 1;
+  will-change: transform; /* smooth zoom effect if applied */
+  backface-visibility: hidden; /* prevents flicker on some browsers */
 }
 
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 2;
 }
 
@@ -48,13 +51,14 @@
   z-index: 3;
   max-width: 650px;
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  transform: translate3d(0, 40px, 0); /* GPU accelerated */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .active .content {
   opacity: 1;
-  transform: translateY(0px);
+  transform: translate3d(0, 0, 0);
 }
 
 .content h2 {
@@ -67,7 +71,6 @@
   font-size: 20px;
   line-height: 1.5;
 }
-
 
 /* Dots */
 .dotsWrapper {
@@ -86,27 +89,34 @@
   background: #ffffff80;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .activeDot {
   background: #fff;
   width: 6px;
   height: 6px;
+  transform: scale(1.2);
 }
-.speakBtn{
-  background: none;
+
+.speakBtn {
+  background: #ffffff;
   border: none;
   outline: none;
   border-radius: 10px;
-  background-color: #ffff;
-  color:#556775;
+  color: #556775;
   padding: 10px 24px;
   font-weight: 500;
   font-size: 16px;
   cursor: pointer;
-
+  transition: transform 0.3s, background 0.3s;
 }
+
+.speakBtn:hover {
+  transform: scale(1.05);
+  background-color: #f1f1f1;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .content {
@@ -122,23 +132,20 @@
     font-size: 16px;
     max-width: 90%;
   }
+}
 
-  .prevBtn,
-  .nextBtn {
-    font-size: 26px;
-    padding: 6px 12px;
-  }
-}
-@media(max-width:571px){
+@media (max-width: 571px) {
   .content {
-  position: absolute;
-  top: 150px;
-  left: 20px;
-  color: white;
-  z-index: 3;
-  max-width: 650px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
+    top: 150px;
+    left: 20px;
+    max-width: 90%;
+  }
+
+  .content h2 {
+    font-size: 24px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
 }

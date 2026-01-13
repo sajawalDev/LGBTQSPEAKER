@@ -1,7 +1,9 @@
 "use client";
+
 import Styles from "@/styles/Images.module.css";
 import { useState } from "react";
-// Create an array of image paths
+import Image from "next/image";
+
 const images = [
   "/images/img1.png",
   "/images/img2.png",
@@ -14,7 +16,7 @@ const images = [
   "/images/img9.png",
   "/images/img10.jpg",
   "/images/img11.png",
-  "/images/img12.png",
+  // "/images/img12.png",
   "/images/img13.jpg",
   "/images/img14.jpg",
   "/images/img15.png",
@@ -47,28 +49,29 @@ export default function ImagesSection() {
   return (
     <>
       <div
-        className={`${Styles.imagesContainer} ${
-          selectedImg ? Styles.blurBackground : ""
-        }`}
+        className={`${Styles.imagesContainer} ${selectedImg ? Styles.blurBackground : ""
+          }`}
       >
-        {images.map((imgSrc, index) => (
+        {images.map((img, index) => (
           <div
             key={index}
             className={Styles.imageWrapper}
-            onClick={() => setSelectedImg(imgSrc)}
+            onClick={() => setSelectedImg(img)}
           >
-            <img src={imgSrc} alt={`Image ${index + 1}`} className={Styles.image} />
-            <div className={Styles.hoverOverlay}></div>
+            <img
+              src={img}
+              alt={`Image ${index + 1}`}
+              loading="lazy"
+              className={Styles.image}
+            /> 
+            
           </div>
         ))}
       </div>
 
       {selectedImg && (
-        <div
-          className={Styles.lightbox}
-          onClick={() => setSelectedImg(null)}
-        >
-          <img src={selectedImg} alt="Selected" className={Styles.lightboxImage} />
+        <div className={Styles.lightbox} onClick={() => setSelectedImg(null)}>
+          <img src={selectedImg} className={Styles.lightboxImage} />
         </div>
       )}
     </>

@@ -1,0 +1,42 @@
+.marqueeContainer {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 10px 0;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  cursor: grab;
+
+  /* smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* mobile swipe optimization */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  /* hide scrollbar - Firefox */
+  scrollbar-width: none;
+}
+
+/* hide scrollbar - Chrome, Edge, Safari */
+.marqueeContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.marqueeContainer:active {
+  cursor: grabbing;
+}
+
+.marquee {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.imageWrapper img {
+  height: 80px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
