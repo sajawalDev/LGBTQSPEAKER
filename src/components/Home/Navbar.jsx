@@ -38,7 +38,6 @@ const Navbar = () => {
               <li><Link href="/about">About</Link></li>
               <li><Link href="/media">Media</Link></li>
               <li><Link href="/media">Services</Link></li>
-              <li><Link href="/media">Shop</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </nav>

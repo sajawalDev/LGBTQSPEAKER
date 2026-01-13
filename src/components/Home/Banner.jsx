@@ -8,9 +8,9 @@ import Link from 'next/link';
 export default function Banner() {
   const slides = [
     {
-      image: "/images/banner/img1.jpg",
+      image: "/images/banner/uimg1.jpg",
       title: 'Book Shannon Whittington Today',
-      desc: 'Bring a dynamic speaker and LGBTQ+ expert to your event. Inspire your audience with insightful talks and interactive sessions.'
+      desc: 'Shannon helps healthcare organizations and corporations operationalize LGBTQ+ psychological safety and patient-centered, people-centered practices, improving engagement, retention, experience metrics, and measurable organizational performance.'
     },
     {
       image: "/images/banner/img2.jpg",

@@ -13,7 +13,7 @@ export const servicesData = [
     id: 1,
     icon: faMicrophone,
     title: "Keynote Presentations",
-    desc: "LGBTQ+ 101: What Every Organization Needs to Know. Transgender Transitions: Cultivating an Affirming Environment for Everyone. LGBTQ: What's Your IQ? LGBTQ+ Patient-Centered Care: A Must for Healthcare Providers. LGBTQ+: ABCs for Grownups.",
+    desc: "LGBTQ+ 101: What Every Organization Needs to Know. Cultivating an Affirming Environment for Everyone. LGBTQ: What's Your IQ? LGBTQ+ Patient-Centered Care: A Must for Healthcare Providers. LGBTQ+: ABCs for Grownups.",
     buttonIcon: faArrowRight
   },
   {
