@@ -1,0 +1,56 @@
+.FooterSection{
+    padding-top: 50px;
+    border-top: 1px solid gray;
+
+}
+.FooterLogo{
+    width: 150px;
+}
+.footerContentLogo p{
+    color: #092B5C;
+    margin: 12px 0;
+}
+.Image{
+    width: 100%;
+}
+
+.footerContent h5{
+  color: #091D2D;
+}
+.footerContent ul li{
+    list-style: none;
+    line-height: 36px;
+    text-align: left;
+}
+.footerLastContent{
+    margin-left: 30px;
+}
+.footerLastContent p{
+   margin-top:-7px ;
+}
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.cContetent p{
+    font-size: 13px;
+}
+.csocaisl span{
+    background: #091D2D;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+.csocaisl span:hover{
+    background: #D49DF5;
+    transition: .4s ease;
+}
+@media(max-width:576px){
+    .copyright{
+        display: flex;
+        flex-direction: column;
+    }
+}

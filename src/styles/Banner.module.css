@@ -1,0 +1,144 @@
+:global(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bannerWrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-top: 17px;
+  overflow: hidden;
+  
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bannerImg {
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.content {
+  position: absolute;
+  bottom: 90px;
+  left: 60px;
+  color: white;
+  z-index: 3;
+  max-width: 650px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.active .content {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.content p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+
+/* Dots */
+.dotsWrapper {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: #ffffff80;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.activeDot {
+  background: #fff;
+  width: 6px;
+  height: 6px;
+}
+.speakBtn{
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #ffff;
+  color:#556775;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    left: 20px;
+    bottom: 50px;
+  }
+
+  .content h2 {
+    font-size: 28px;
+  }
+
+  .content p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  .prevBtn,
+  .nextBtn {
+    font-size: 26px;
+    padding: 6px 12px;
+  }
+}
+@media(max-width:571px){
+  .content {
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  color: white;
+  z-index: 3;
+  max-width: 650px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+}

@@ -1,0 +1,21 @@
+.HiretospeakSection{
+    background: #471751;
+    padding: 10% 0;
+}
+.HiretospeakSection h2{
+    color: #fff;
+    font-size: 66px;
+}
+.HTPForm label{
+    color: #fff;
+}
+.HTPForm button{
+    background: #CF92F4;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    outline :none;
+    border-radius: 10px;
+    font-weight: bold;
+
+}

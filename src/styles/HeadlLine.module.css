@@ -1,0 +1,20 @@
+.headline {
+  width: 100%;
+  background-color: #471751; /* visible color */
+  color: #fff;
+  padding: 5px 15px;
+  position: relative; /* make it fixed above navbar */
+  top: 0;
+  left: 0;
+  z-index: 1100; /* higher than navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+@media(max-width:991px){
+  .headline{
+    display: none;
+  }
+}

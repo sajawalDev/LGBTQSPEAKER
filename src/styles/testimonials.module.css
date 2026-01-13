@@ -1,0 +1,76 @@
+.TestimonialsSection{
+    background: #F7F8FB;
+    padding: 60px 0;
+    margin: 30px 0;
+}
+.TestimonialCard{
+    background: #fff;
+    padding: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 14px 0;
+}
+.TestimonialCard p{
+    color: #556787;
+}
+.Stars{
+    color: #F3BB24;
+    font-size: 11px;
+}
+.TestimonialCard h6{
+    font-size: 15px;
+    font-family: 100;
+}
+.TestimoinlsHeadingz{
+    padding: 24px;
+}
+.TestimoinlsHeadingz h2{
+    font-size: 48px;
+    font-weight: 650;
+}
+.TestimoinlsHeadingz button{
+    background: #091D2D;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+
+}
+.TestimoinlsHeadingz button:hover{
+    background: #CF92F4;
+    transform: scale(0.95);
+}
+.TPageHeading{
+    width: 80%;
+    background:#F7F8FB;
+    padding: 100px 0;
+    text-align: center;
+    margin: 40px auto;
+}
+.TPageHeading h1{
+    color: #091D2D;
+    font-weight: bold;
+}
+@media(max-width:571px){
+    .TestimonialCard{
+    background: #fff;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 14px 0;
+
+}
+.TPageHeading{
+    width: 85%;
+    background:#F7F8FB;
+    padding: 60px 0;
+    text-align: center;
+    margin: 40px auto;
+}
+.TPageHeading h1{
+    color: #091D2D;
+    font-weight: bold;
+}
+}

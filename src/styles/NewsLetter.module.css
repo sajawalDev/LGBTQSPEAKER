@@ -1,0 +1,75 @@
+.Newsletter{
+    padding: 50px 0;
+    margin: 30px 0;
+}
+.newsletterHeding{
+    text-align: center;
+}
+.newsletterHeding h2{
+    font-weight: bold;
+    font-size: 48px;
+}
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #cf92f4;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.subscribeBtn {
+    background: #091D2D;
+    color: #ffff;
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+    
+}
+.subscribeBtn:hover{
+    background: #CF92F4;
+    color: #091D2D;
+    transform: scale(0.95);
+}
+@media(max-width:571px){
+  .newsletterHeding h2{
+    font-weight: bold;
+    font-size: 37px;
+}
+.form {
+  max-width: 600px;
+  margin: 20px auto;
+}
+}

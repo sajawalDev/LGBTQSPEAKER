@@ -1,0 +1,15 @@
+.HtsBtn{
+    background: #471751;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.HtsBtn:hover{
+    background: #CF92F4;
+    color: #000;
+    transition: .4s ease;
+}

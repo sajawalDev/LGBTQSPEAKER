@@ -1,0 +1,93 @@
+'use client';
+
+import Styles from "@/styles/FAQs.module.css"
+import { useState } from 'react';
+import { Plus, Minus } from 'lucide-react';
+
+const FAQs = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const faqs = [
+    {
+      question: "What services do you offer?",
+      answer: `We offer a range of services, including keynote presentations, workshops, consultation, and more. Our focus areas include LGBTQ+ advocacy, diversity and inclusion, and personal empowerment. Feel free to explore our "Services" page for detailed information. Also offer education for healthcare providers in LGBTQ+ Patient Centered Care for doctors nurses social workers physical and occupational therapists home health aids dentists.`
+    },
+    {
+      question: "How can I Book Shannon for an Event or Consultation?",
+      answer:
+        "Booking Shannon is easy. Please visit our Contact page to get in touch with us. We'll respond promptly to discuss your specific needs and availability."
+    },
+    {
+      question: "Are Shannon's Services Customizable for my event or Organization?",
+      answer:
+        "Absolutely! Shannon's services can be customized to align with your event theme or organization's goals. Contact us to discuss your customization needs."
+    },
+    {
+      question: "Can Shannon Provides Virtual Presentations or Workshop?",
+      answer:
+        "Yes, Shannon offers virtual presentations and workshops to reach a global audience. We use state-of-the-art technology to deliver an immersive online experience."
+    },
+    {
+      question: "What makes Shannon Presentations Unique?",
+      answer:
+        "Shannon brings a passionate and informed perspective to every presentation. Her personal experiences and dedication to social change create engaging and impactful talks that resonate with audiences."
+    },
+    {
+      question: "Do you offer educational outreach programs for school and youth Organizations?",
+      answer:
+        "Yes, we are committed to promoting awareness and understanding among students and youth. Contact us to discuss tailored educational outreach programs."
+    },
+    {
+      question: "What is the best way to updated on Shannon's upcoming events or contents?",
+      answer:
+        "Stay connected with us through our newsletter and social media channels. You can find the latest updates, event announcements, and valuable content on our website and social platforms."
+    },
+    {
+      question: "Are these Resources available for individuals seeking support and guidance?",
+      answer:
+        "Yes, we offer resources and one-on-one consultations for individuals looking for guidance on LGBTQ+ issues, personal growth, and more. Visit our Resources page for helpful information."
+    },
+    {
+      question: "How can I share my testimonial and feedback to Shannon?",
+      answer:
+        "We welcome your testimonials and feedback. Please contact us through the provided channels to share your experiences and insights."
+    }
+  ];
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <div className={`container mt-5 ${Styles.faqContainer}`}>
+        <h6 className="text-center">Find your Answer</h6>
+      <h1 className={Styles.faqHeading}>Frequently Asked Questions</h1>
+      <p className="text-center">Join our newsletter community to receive the latest updates, valuable insights, and exclusive content from Shannon Whittington. Our newsletter is your gateway to a world of knowledge and empowerment.</p>
+      <div className={Styles.faqList}>
+        {faqs.map((item, index) => (
+          <div key={index} className={Styles.faqItem}>
+            <div
+              className={Styles.faqQuestion}
+              onClick={() => toggleFAQ(index)}
+            >
+              <h4>{item.question}</h4>
+              <span className={Styles.icon}>
+                {activeIndex === index ? <Minus /> : <Plus />}
+              </span>
+            </div>
+
+            <div
+              className={`${Styles.faqAnswerWrapper} ${
+                activeIndex === index ? Styles.active : ""
+              }`}
+            >
+              <p className={Styles.faqAnswer}>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default FAQs;

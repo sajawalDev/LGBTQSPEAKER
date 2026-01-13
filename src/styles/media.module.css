@@ -1,0 +1,63 @@
+.MediaSection{
+    margin-top: 100px;
+}
+.MediaContainer{
+    width: 80%;
+    margin: 0 auto;
+    background: #F7F8FB;
+    text-align: center;
+    padding:80px 0;
+}
+.MediaContainer h1 {
+    font-size: 55px;
+    color: #091D2D;
+    font-weight: 650;
+}
+.MediaImg{
+    width: 450px;
+    
+}
+.Image{
+    width: 100%;
+    object-fit: contain;
+    
+}
+.MediaContent h5{
+    color: #091D2D;
+    font-weight: 650;
+}
+.MediaContent p{
+    color: #556779;
+    margin: 15px 0;
+}
+.MediaContent button{
+    background: #091D2D;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 12px 26px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+}
+.MediaContent button:hover{
+    background: #CF92F4;
+    color: #091D2D;
+    transform: scale(0.95);
+}
+@media(max-width:576px){
+    .MediaSection{
+    margin-top: 50px;
+}
+.MediaContainer{
+    width: 85%;
+    margin: 0 auto;
+    background: #F7F8FB;
+    text-align: center;
+    padding:60px 0;
+}
+.MediaContainer h1 {
+    font-size: 50px;
+    color: #091D2D;
+    font-weight: 650;
+}
+}

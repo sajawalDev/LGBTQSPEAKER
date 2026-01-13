@@ -1,0 +1,75 @@
+.WhyChooseUsSection{
+    background: #F7F8FB;
+    padding: 50px 0;
+}
+.WCu{
+    padding: 25px;
+}
+.WCu h5{
+    color:#091D2D;
+}
+.WCu h1{
+    font-weight: bold;
+    color: #091D2D;
+}
+.WCu p{
+    color: #6F6786;
+}
+.WCu button{
+    background: #091D2D;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+
+}
+.WCu button:hover{
+    background: #CF92F4;
+    transform: scale(0.95);
+}
+.WcuCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.CardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.CardHeader h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.Icon {
+  width: 42px;
+  height: 42px;
+  background: #cf92f4;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.Card p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: #555;
+}

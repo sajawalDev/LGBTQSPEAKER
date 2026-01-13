@@ -1,0 +1,95 @@
+.ServicesSection {
+    padding: 80px 0;
+    background: #F7F8FB;
+}
+
+.ServicesHeading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.ServiceCard {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid #CBD2D8;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    /* keep button at bottom */
+    justify-content: flex-start;
+    flex: 1;
+}
+
+
+.ServiceCard:hover {
+    transform: translateY(-5px);
+    padding-bottom: 60px;
+    /* extra space for button */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* bottom-only shadow */
+}
+
+/* Icon + title */
+.CardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.Icon {
+    font-size: 26px;
+    color: #CF92F4;
+}
+
+.CardHeader h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Description */
+.Desc {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Button hidden by default */
+.CardButton {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    padding: 8px 16px;
+    background: none;
+    color: #091D2D;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+/* Show button on hover */
+.ServiceCard:hover .CardButton {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.servcesTagline {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #CBD2D8;
+}
+
+.servcesTagline p {
+    color: #8E6775;
+}
+
+.servcesTagline b {
+    color: #091D2D;
+}
