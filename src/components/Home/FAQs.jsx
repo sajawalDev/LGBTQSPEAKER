@@ -10,7 +10,7 @@ const FAQs = () => {
   const faqs = [
     {
       question: "What services do you offer?",
-      answer: `We offer a range of services, including keynote presentations, workshops, consultation, and more. Our focus areas include LGBTQ+ advocacy, diversity and inclusion, and personal empowerment. Feel free to explore our "Services" page for detailed information. Also offer education for healthcare providers in LGBTQ+ Patient Centered Care for doctors nurses social workers physical and occupational therapists home health aids dentists.`
+      answer: `We offer keynote presentations, workshops, strategic consulting, and education designed to help organizations build inclusive, high-performing cultures grounded in belonging and psychological safety. Our work supports corporate teams and healthcare systems alike, with focus areas including inclusive leadership, LGBTQ+ equity, organizational culture, and performance. For healthcare providers, we deliver specialized education in LGBTQ+ Patient-Centered Care for doctors, nurses, social workers, physical and occupational therapists, home health aides, dentists, and interdisciplinary care teams strengthening engagement, care quality, and measurable outcomes.`
     },
     {
       question: "How can I Book Shannon for an Event or Consultation?",
@@ -30,7 +30,7 @@ const FAQs = () => {
     {
       question: "What makes Shannon Presentations Unique?",
       answer:
-        "Shannon brings a passionate and informed perspective to every presentation. Her personal experiences and dedication to social change create engaging and impactful talks that resonate with audiences."
+        "Shannon’s presentations stand out because they go beyond awareness to deliver practical, evidence-based strategies that leaders and teams can apply immediately. She blends real-world healthcare and organizational leadership experience with deep expertise in LGBTQ+ inclusion, belonging, and psychological safety, connecting these principles directly to engagement, performance, retention, and outcomes. Her sessions are engaging, grounded, and action-oriented, equipping audiences with clear frameworks that create lasting cultural and operational impact."
     },
     {
       question: "Do you offer educational outreach programs for school and youth Organizations?",

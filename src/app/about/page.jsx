@@ -12,9 +12,9 @@ const img = "/images/Whoiam.png"
 export default function About() {
     return (
         <>
-        <Head>
-            <title>About _ Whittington Consulting</title>
-        </Head>
+            <Head>
+                <title>About _ Whittington Consulting</title>
+            </Head>
             <section className={Styles.About}>
                 <div className={Styles.AboutHeading}>
                     <p>Home <FontAwesomeIcon icon={faCaretRight} /> About</p>
@@ -30,23 +30,23 @@ export default function About() {
                         <div className="col-md-8">
                             <div className={Styles.AboutContent}>
                                 <h6>About</h6>
-                                <p>Welcome to Whittington Consulting, your partner in fostering inclusive, equitable, and diverse workplaces. At the heart of our mission is Shannon Whittington, the passionate force behind our brand.</p>
-                                <span><b>Meet Shannon Whittington: Your Guide to Inclusive Excellence</b></span>
-                                <p>Shannon Whittington, the driving force behind Whittington Consulting, is on a relentless mission to empower organizations in the journey towards an inclusive, accepting, and harmonious workplace. Shannon’s credentials are not just impressive; they are essential for the profound impact she has in the field.</p>
-                                <p>With a background as an award-winning doctorate-prepared nurse, Shannon’s expertise in healthcare is matched by her unparalleled commitment to the LGBTQ+ community. As a certified LGBTQ+ expert, she brings a wealth of knowledge and experience to the table, backed by a profound understanding of the unique challenges faced by LGBTQ+ individuals.</p>
-                                <p>Shannon’s journey is personal, as well as professional. As a gay woman, she brings a unique and invaluable perspective to her work. Her personal experiences inform her mission, and her dedication to improving the world for LGBTQ+ individuals is unwavering.</p>
+                                <p>Whittington Consulting, your partner in building inclusive, ethical, and high-performing workplace cultures. At the core of our work is helping organizations operationalize belonging, psychological safety, and inclusive leadership to improve engagement, retention, and measurable outcomes.</p>
+                                <span><b>Meet Shannon Whittington: Your Guide to Belonging-Driven Excellence</b></span>
+                                <p>Shannon Whittington is dedicated to helping healthcare systems and corporate organizations create environments where people feel safe, valued, and empowered to perform at their best. Her work focuses on embedding LGBTQ+ inclusion, psychological safety, and equitable leadership practices into daily operations, turning intention into sustainable organizational performance.</p>
+                                <p>An award-winning, doctorate-prepared nurse with extensive leadership experience, Shannon brings deep expertise in healthcare alongside a proven ability to translate inclusive practices into real-world results. As a certified LGBTQ+ expert, she understands how belonging, ethical leadership, and inclusive cultures directly impact retention, burnout reduction, team effectiveness, patient experience, and business outcomes.</p>
+                                <p>Shannon’s work is both professional and personal. As a gay woman, she brings lived experience and authenticity to her leadership, offering organizations a grounded, practical perspective on what it takes to build cultures of trust, inclusion, and excellence. Her mission is clear: to help organizations move beyond awareness and create workplaces where people and performance can thrive.</p>
                                 <div className={Styles.Ourmision}>
                                     <div className={Styles.comitment}>
                                         <p><span><FontAwesomeIcon icon={faGear} /></span>Our Commitment</p>
-                                        <content>Whittington Consulting, we are committed to helping organizations eliminate homophobia and discrimination in the workplace, all without overwhelming you.</content>
+                                        <content>We are committed to helping healthcare systems and organizations build workplaces rooted in belonging, psychological safety, and ethical leadership. We support leaders in addressing bias, reducing discrimination, and creating inclusive environments through practical, actionable strategies that strengthen culture, engagement, and performance without overwhelming teams.</content>
                                     </div>
                                     <div className={Styles.mission}>
                                         <p><span><FontAwesomeIcon icon={faGear} /></span>Our Mission</p>
-                                        <content>Shannon’s expertise and our consulting services aim to raise your IQ on all things LGBTQ+ and Diversity & Inclusion. We provide practical skills, guidance, and insights to help your organization flourish in a diverse world.</content>
+                                        <content>Shannon’s expertise and our consulting services help organizations deepen their understanding of LGBTQ+ inclusion, belonging, and psychological safety. We equip healthcare systems and corporate teams with practical strategies, leadership tools, and clear guidance to build inclusive cultures that strengthen engagement, performance, and long-term organizational success.</content>
                                     </div>
                                 </div>
                                 <div className={Styles.ContentButton}>
-                                   <Link href="/hire-to-speak"><button>Hire To Speak</button></Link>
+                                    <Link href="/hire-to-speak"><button>Hire To Speak</button></Link>
                                     <span><FontAwesomeIcon icon={faEnvelope} /></span> for Consultation
                                     <p><b>hello@whittingtonconsulting.com</b></p>
                                 </div>
@@ -60,13 +60,12 @@ export default function About() {
                 <h5>GET IN TOUCH</h5>
                 <h1>Join Us in Building a Better Workplace</h1>
                 <p>
-                    Together, let’s squash homophobia in the workplace. It’s not just a<br /> commitment; it’s a promise. Choose Whittington Consulting, and take the<br /> first step toward creating a workplace where everyone can flourish.
-
+                    Together, we can create workplaces free from discrimination and rooted in belonging. This is more than a commitment, it’s a promise to excellence. Partner with Whittington Consulting and begin building a culture where people and performance flourish.
                 </p>
-            <button><span><FontAwesomeIcon icon={faPhone} /></span>Give us a call today</button>
+                <button><span><FontAwesomeIcon icon={faPhone} /></span>Give us a call today</button>
             </section>
-            <FAQs/>
-            <NewsLetter/>
+            <FAQs />
+            <NewsLetter />
         </>
     )
 }

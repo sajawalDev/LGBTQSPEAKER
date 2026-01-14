@@ -9,6 +9,7 @@ import {
   faTwitter,
   faLinkedin,
   faYoutube,
+  faTiktok
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
@@ -64,10 +65,23 @@ export default function Footer() {
                             <p>© 2023 · Whittington Consulting – Website Design & Marketing by <b>Sajawallabs</b></p>
                         </div>
                         <div className={Styles.csocaisl}>
-                            <span><FontAwesomeIcon icon={faLinkedin}/></span>
-                            <span><FontAwesomeIcon icon={faYoutube}/></span>
-                            <span><FontAwesomeIcon icon={faInstagram}/></span>
+                            <span>
+                                <a href="https://www.linkedin.com/in/shannonwhittington/">
+                                <FontAwesomeIcon icon={faLinkedin}/></a>
+                                </span>
+                            <span>
+                                <a href="https://www.youtube.com/@shannonwhittingtonconsulting/videos">
+                                <FontAwesomeIcon icon={faYoutube}/>
+                                </a></span>
+                            <span>
+                                <a href="https://www.instagram.com/shannonwhittingtonconsulting?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                                <FontAwesomeIcon icon={faInstagram}/>
+                                </a>
+                                </span>
                             <span><FontAwesomeIcon icon={faTwitter}/></span>
+                            <span>
+                                <a href="https://www.tiktok.com/@shannonwhittingtonsheher?is_from_webapp=1&sender_device=pc">
+                                <FontAwesomeIcon icon={faTiktok}/></a></span>
                         </div>
                     </div>
                 </div>

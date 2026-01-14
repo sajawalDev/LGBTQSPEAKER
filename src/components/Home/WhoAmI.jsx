@@ -38,10 +38,7 @@ export default function WhoIAmSection() {
                         <div className={Styles.WhoiamContent}>
                             <h5>Who am I?</h5>
                             <p>
-                                I help organizations squash homophobia in the workplace without
-                                the overwhelm. As an award-winning doctorate-prepared Registered
-                                Nurse and certified LGBTQ+ expert, I provide insights and simple
-                                tips for organizations to create a welcoming environment.
+                               I help healthcare organizations and corporations operationalize LGBTQ+ psychological safety and patient-centered, people-centered practices, improving engagement, retention, experience metrics, and measurable organizational performance.
                             </p>
                             <div className={Styles.WhoamiBtnz}>
                                 <button className={Styles.Play}>

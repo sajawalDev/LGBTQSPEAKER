@@ -17,8 +17,7 @@ export default function WhyChooseUs() {
                 <h1>Help Nourishing Your Company!</h1>
                 <b>Unlock your life potential with us</b>
                 <p>
-                  We're not just another consulting firm. We're your partners on this journey.
-                  Our commitment to excellence and inclusivity is unmatched.
+                 We’re more than a consulting firm; we’re strategic partners in building inclusive, high-performing cultures. Our commitment to belonging, ethical leadership, and measurable excellence sets us apart.
                 </p>
                 <Link href="/hire-to-speak"><button>Hire to Speak</button></Link>
               </div>

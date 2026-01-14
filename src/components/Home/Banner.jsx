@@ -9,9 +9,10 @@ export default function Banner() {
   const slides = [
     {
       image: "/images/banner/img1.jpg",
-      blur: "/images/banner/blur-img1.jpg", // tiny blurred image
-      title: 'Book Shannon Whittington Today',
-      desc: 'Shannon helps healthcare organizations and corporations operationalize LGBTQ+ psychological safety and patient-centered, people-centered practices, improving engagement, retention, experience metrics, and measurable organizational performance.'
+      blur: "/images/banner/blur-img1.jpg",
+      heading: "The Hidden Barrier to Revenue, Retention, and Quality:",
+      title: 'What if missed revenue, retention, and quality targets aren’t about effort, but about a workplace where people don’t feel safe, included, or able to fully contribute?',
+      desc: ''
     },
     {
       image: "/images/banner/img2.jpg",
@@ -59,11 +60,10 @@ export default function Banner() {
             <div className={Styles.overlay}></div>
 
             <div className={Styles.content}>
-              <h2>{slide.title}</h2>
+               <h1>{slide.heading}</h1>
+              <h3>{slide.title}</h3>
               <p>{slide.desc}</p>
-              <Link href="/hire-to-speak">
-                <button className={Styles.speakBtn}>HIRE TO SPEAK</button>
-              </Link>
+              
             </div>
           </div>
         );
