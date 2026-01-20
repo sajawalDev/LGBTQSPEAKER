@@ -2,6 +2,7 @@
 
 import "@/lib/fontawesome";
 import Styles from "@/styles/Footer.module.css";
+import Link from "next/link";
 const logo = "/images/Whittington-Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,8 +12,15 @@ import {
   faYoutube,
   faTiktok
 } from "@fortawesome/free-brands-svg-icons";
+const blogTitle =
+  "Dr Shannon Whittington: Advocate, Speaker and Catalyst for Change";
+
 
 export default function Footer() {
+  const slug = blogTitle
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
     return (
         <>
             <section className={Styles.FooterSection}>
@@ -30,11 +38,10 @@ export default function Footer() {
                             <div className={Styles.footerContent}>
                                 <ul>
                                     <li><h5>Usefull Links</h5></li>
-                                    <li>About</li>
-                                    <li>Media & press</li>
-                                    <li>Gigs</li>
-                                    <li>Testimonials</li>
-                                    <li>Blog</li>
+                                    <Link href="/about" className={Styles.Item}><li>About</li></Link>
+                                    <Link href="/media"className={Styles.Item}><li>Media & press</li> </Link>
+                                   <Link href=""className={Styles.Item}><li>Testimonials</li></Link>
+                                 <Link href={`/blog/${slug}`}className={Styles.Item}><li>Blog</li></Link>
                                 </ul>
                             </div>
                         </div>
@@ -42,11 +49,10 @@ export default function Footer() {
                             <div className={Styles.footerContent}>
                                 <ul>
                                     <li><h5>Legal</h5></li>
-                                    <li>Cookie Policy</li>
-                                    <li>Terms & Condition</li>
-                                    <li>Prvacy policy</li>
-                                    <li>Refund Policy</li>
-                                    <li>Contact</li>
+                                    <Link href="/cookie-policy"className={Styles.Item}><li>Cookie Policy</li></Link>
+                                    <Link href="/terms-&-conditions"className={Styles.Item}><li>Terms & Condition</li></Link>
+                                    <Link href="/privacy-policy"className={Styles.Item}><li>Privacy policy</li></Link>
+                                    <Link href="/contact"className={Styles.Item}><li>Contact</li></Link>
                                 </ul>
                             </div>
                         </div>

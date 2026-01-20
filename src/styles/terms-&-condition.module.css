@@ -1,0 +1,43 @@
+.TACSection {
+    margin-top: 100px;
+}
+
+.TACContainer {
+    width: 80%;
+    margin: 0 auto;
+    background: #F7F8FB;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.TACContainer h1 {
+    font-size: 55px;
+    color: #091D2D;
+    font-weight: 650;
+}
+.tacContent{
+    padding: 30px 0;
+}
+.tacContent h3{
+    color: #091D2D;
+    margin: 20px 0;
+}
+@media(max-width:576px) {
+    .TACSection {
+        margin-top: 50px;
+    }
+
+    .TACContainer {
+        width: 85%;
+        margin: 0 auto;
+        background: #F7F8FB;
+        text-align: center;
+        padding: 60px 0;
+    }
+
+    .TACContainer h1 {
+        font-size: 50px;
+        color: #091D2D;
+        font-weight: 650;
+    }
+}
