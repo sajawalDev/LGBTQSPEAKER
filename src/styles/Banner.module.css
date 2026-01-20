@@ -10,7 +10,8 @@
   height: 80vh;
   margin-top: 17px;
   overflow: hidden;
-  perspective: 1000px; /* for smooth 3D GPU transforms */
+  perspective: 1000px;
+  /* for smooth 3D GPU transforms */
 }
 
 .slide {
@@ -18,9 +19,11 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(1.05) translateZ(0); /* GPU acceleration */
+  transform: scale(1.05) translateZ(0);
+  /* GPU acceleration */
   transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform; /* hint browser to optimize */
+  will-change: opacity, transform;
+  /* hint browser to optimize */
 }
 
 .active {
@@ -31,8 +34,10 @@
 .bannerImg {
   object-fit: cover;
   z-index: 1;
-  will-change: transform; /* smooth zoom effect if applied */
-  backface-visibility: hidden; /* prevents flicker on some browsers */
+  will-change: transform;
+  /* smooth zoom effect if applied */
+  backface-visibility: hidden;
+  /* prevents flicker on some browsers */
 }
 
 .overlay {
@@ -51,7 +56,8 @@
   z-index: 3;
   max-width: 650px;
   opacity: 0;
-  transform: translate3d(0, 40px, 0); /* GPU accelerated */
+  transform: translate3d(0, 40px, 0);
+  /* GPU accelerated */
   transition: opacity 0.8s ease, transform 0.8s ease;
   will-change: opacity, transform;
 }
@@ -60,7 +66,8 @@
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-.content h1{
+
+.content h1 {
   font-weight: bold;
   margin-bottom: 30px;
 }
@@ -120,12 +127,33 @@
   transform: scale(1.05);
   background-color: #f1f1f1;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
+@media(max-width:1185px){
   .content {
     left: 20px;
     bottom: 50px;
+  }
+  .content h1 {
+    font-size: 34px;
+    margin-bottom: 200px;
+    font-weight: bold;
+  }
+}
+@media(max-width:850px){
+  .content h1{
+    margin-bottom: 270px;
+
+  }
+}
+/* Responsive */
+@media (max-width: 798px) {
+  .content {
+    left: 20px;
+    bottom: 50px;
+  }
+  .content h1 {
+    font-size: 34px;
+    margin-bottom: 300px;
+    font-weight: bold;
   }
 
   .content h2 {
@@ -138,17 +166,19 @@
   }
 }
 
-@media (max-width: 571px) {
+@media (max-width: 600px) {
   .content {
     bottom: 40px;
     left: 20px;
     max-width: 90%;
   }
-.content h1{
-  font-size: 24px;
-  margin-bottom: 200px;
-  font-weight: bold;
-}
+
+  .content h1 {
+    font-size: 25px;
+    margin-bottom: 350px;
+    font-weight: bold;
+  }
+
   .content h3 {
     font-size: 22px;
   }
@@ -156,12 +186,21 @@
   .content p {
     font-size: 14px;
   }
+
   .bannerImg {
-  object-fit: cover;
-  z-index: 1;
-  will-change: transform; /* smooth zoom effect if applied */
-  backface-visibility: hidden; /* prevents flicker on some browsers */
-}
+    object-fit: cover;
+    z-index: 1;
+    will-change: transform;
+    /* smooth zoom effect if applied */
+    backface-visibility: hidden;
+    /* prevents flicker on some browsers */
+  }
 
 }
-
+@media(max-width:399px){
+  .content h1 {
+    font-size: 25px;
+    margin-bottom: 200px;
+    font-weight: bold;
+  }
+}
