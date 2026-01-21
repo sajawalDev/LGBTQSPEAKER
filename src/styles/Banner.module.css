@@ -33,7 +33,7 @@
 /* TOP LEFT TITLE */
 .titleBox {
   position: absolute;
-  top: 60px;
+  top: 160px;
   left: 40px;
   z-index: 3;
   max-width: 600px;
@@ -48,7 +48,7 @@
 /* BOTTOM LEFT DESCRIPTION */
 .descBox {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 40px;
   z-index: 3;
   max-width: 570px;
@@ -83,7 +83,17 @@
   background: #fff;
   transform: scale(1.2);
 }
+@media(max-width:1010px){
+  .titleBox{
+    top: 60px;
+    left: 40px;
+  }
+    .descBox {
+    bottom: 40px;
+    left: 40px;
+  }
 
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .titleBox {
