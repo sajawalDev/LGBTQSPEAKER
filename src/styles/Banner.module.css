@@ -127,6 +127,12 @@
   transform: scale(1.05);
   background-color: #f1f1f1;
 }
+@media(max-width:1380px){
+  .content h1{
+    margin-bottom: 180px;
+  }
+}
+
 @media(max-width:1185px){
   .content {
     left: 20px;
@@ -136,6 +142,11 @@
     font-size: 34px;
     margin-bottom: 200px;
     font-weight: bold;
+  }
+}
+@media(max-width:935px){
+  .content h1{
+    margin-bottom: 250px;
   }
 }
 @media(max-width:850px){

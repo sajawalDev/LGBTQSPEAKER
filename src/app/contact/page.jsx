@@ -2,16 +2,16 @@
 import Styles from "@/styles/contact.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram, faTwitter, faLinkedin,faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faTwitter, faLinkedin, faYoutube,faTiktok } from "@fortawesome/free-brands-svg-icons";
 import NewsLetter from "@/components/Home/NewsLetter";
 import FAQs from "@/components/Home/FAQs";
 import Head from "next/head";
 export default function Contact() {
     return (
         <>
-        <Head>
-            <title>Contact - Whittington Consulting</title>
-        </Head>
+            <Head>
+                <title>Contact - Whittington Consulting</title>
+            </Head>
             <section className={Styles.ContactSection}>
                 <div className={Styles.ContactContainer}>
                     <p>Home <span><FontAwesomeIcon icon={faCaretRight} /></span> Contact</p>
@@ -38,10 +38,23 @@ export default function Contact() {
                             <div className={Styles.SocialMedia}>
                                 <h5>Social Media :</h5>
                                 <p>
-                                    <span><FontAwesomeIcon icon={faTwitter}/></span>
-                                    <span><FontAwesomeIcon icon={faInstagram}/></span>
-                                    <span><FontAwesomeIcon icon={faLinkedin}/></span>
-                                    <span><FontAwesomeIcon icon={faYoutube}/></span>
+                                    <span>
+                                        <a href="https://www.linkedin.com/in/shannonwhittington/">
+                                            <FontAwesomeIcon icon={faLinkedin} /></a>
+                                    </span>
+                                    <span>
+                                        <a href="https://www.youtube.com/@shannonwhittingtonconsulting/videos">
+                                            <FontAwesomeIcon icon={faYoutube} />
+                                        </a></span>
+                                    <span>
+                                        <a href="https://www.instagram.com/shannonwhittingtonconsulting?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                                            <FontAwesomeIcon icon={faInstagram} />
+                                        </a>
+                                    </span>
+                                    <span><FontAwesomeIcon icon={faTwitter} /></span>
+                                    <span>
+                                        <a href="https://www.tiktok.com/@shannonwhittingtonsheher?is_from_webapp=1&sender_device=pc">
+                                            <FontAwesomeIcon icon={faTiktok} /></a></span>
                                 </p>
                             </div>
                         </div>
@@ -81,10 +94,10 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-                <FAQs/>
-                <NewsLetter/>
+                <FAQs />
+                <NewsLetter />
             </section>
-            
+
 
         </>
     )
