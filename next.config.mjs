@@ -2,8 +2,15 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  images: {
-    domains: ["res.cloudinary.com"],
+   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',       // leave empty unless using a specific port
+        pathname: '/**', // allow all paths
+      },
+    ],
   },
 };
 
