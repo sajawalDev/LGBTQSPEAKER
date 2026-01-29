@@ -212,7 +212,11 @@
 .closeBtn {
   color: #e84393;
 }
-
+@media (max-width: 1024px) {
+  .ctaBtn {
+    display: none;
+  }
+}
 
 @media (max-width: 991px) {
   .navWrapper {
