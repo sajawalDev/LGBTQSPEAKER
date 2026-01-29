@@ -12,6 +12,17 @@
   align-items: center;
   
 }
+.csocaisl span{
+    background: none;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+.csocaisl span a{
+    text-decoration: none;
+    color: #fff;
+}
 
 @media(max-width:991px){
   .headline{
