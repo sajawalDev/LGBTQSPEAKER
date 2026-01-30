@@ -1,65 +1,15 @@
+// app/api/navbar/route.js
 import { NextResponse } from "next/server";
-import { connectDB } from "@/lib/mongodb";
-import Navbar from "@/models/Navbar";
-import { getServerSession } from "@/lib/auth";
+import { getNavbar } from "@/lib/navbar";
 
-/* =======================
-   GET → Public Navbar
-   ======================= */
+export const revalidate = 3600;
+
 export async function GET() {
   try {
-    await connectDB();
-
-    const navbar = await Navbar.findOne().lean();
-
-    return NextResponse.json(
-      navbar || {},
-      { status: 200 }
-    );
-  } catch (error) {
+    return NextResponse.json(await getNavbar());
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch navbar" },
-      { status: 500 }
-    );
-  }
-}
-
-/* =======================
-   PUT → Admin Update
-   ======================= */
-export async function PUT(req) {
-  try {
-    const session = await getServerSession();
-
-    if (!session || !session.isAdmin) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-
-    await connectDB();
-
-    const data = await req.json();
-
-    const navbar = await Navbar.findOneAndUpdate(
-      {},
-      {
-        logo: data.logo,
-        menuItems: data.menuItems,
-        button: data.button,
-        socials: data.socials,
-      },
-      {
-        upsert: true,
-        new: true,
-      }
-    );
-
-    return NextResponse.json(navbar, { status: 200 });
-  } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to update navbar" },
       { status: 500 }
     );
   }
