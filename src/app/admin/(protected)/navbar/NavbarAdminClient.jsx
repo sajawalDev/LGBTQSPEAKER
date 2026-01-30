@@ -10,14 +10,25 @@ export default function NavbarAdminPage({ initialNavbar }) {
     /* ================= SAVE ================= */
     const saveNavbar = async () => {
         setSaving(true);
-        await fetch("/api/navbar", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(navbar),
-        });
-        setSaving(false);
-        alert("Navbar updated successfully");
+        try {
+            const res = await fetch("/api/admin/navbar", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(navbar),
+            });
+
+            if (!res.ok) throw new Error("Failed to save navbar");
+
+            const updatedNavbar = await res.json();
+            setNavbar(updatedNavbar); // <-- immediately update local state
+        } catch (err) {
+            alert("Save failed: " + err.message);
+        } finally {
+            setSaving(false);
+        }
     };
+
+
 
     /* ================= MENU ================= */
     const addMenuItem = () => {

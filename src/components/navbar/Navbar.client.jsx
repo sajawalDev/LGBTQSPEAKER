@@ -1,5 +1,6 @@
 "use client";
 
+import useSWR from "swr";
 import "@/lib/fontawesome";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -9,132 +10,135 @@ import HeadLine from "../Ui/HeadLine/HeadLine";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import {
-  faInstagram,
-  faTwitter,
-  faLinkedin,
-  faYoutube,
-  faTiktok,
+    faInstagram,
+    faTwitter,
+    faLinkedin,
+    faYoutube,
+    faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function NavbarClient({ navbar }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
-  }, [isMenuOpen]);
+export default function NavbarClient() {
+    const { data: navbar } = useSWR("/api/navbar", fetcher, {
+        refreshInterval: 1000, // check every 1 second
+    });
 
-  if (!navbar) return null;
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  return (
-    <>
-      <HeadLine />
+    useEffect(() => {
+        document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+    }, [isMenuOpen]);
 
-      <header className={Styles.navWrapper}>
-        <div className={Styles.container}>
-          {/* Logo */}
-          <div className={Styles.brandLogo}>
-            <Link href="/">
-              <Image
-                src={navbar.logo?.url}
-                alt={navbar.logo?.alt || "Logo"}
-                width={120}
-                height={50}
-                priority // 🔥 instant logo
-              />
-            </Link>
-          </div>
+    if (!navbar) return null;
 
-          {/* Desktop Menu */}
-          <nav className={Styles.desktopNav}>
-            <ul>
-              {navbar.menuItems
-                ?.filter((i) => i.isActive)
-                .sort((a, b) => a.order - b.order)
-                .map((item) => (
-                  <li key={item._id}>
-                    <Link href={item.href}>{item.label}</Link>
-                  </li>
-                ))}
-            </ul>
-          </nav>
+    return (
+        <>
+            <HeadLine />
+            <header className={Styles.navWrapper}>
+                <div className={Styles.container}>
+                    {/* Logo */}
+                    <div className={Styles.brandLogo}>
+                        <Link href="/">
+                            <Image
+                                src={navbar.logo?.url}
+                                alt={navbar.logo?.alt || "Logo"}
+                                width={120}
+                                height={50}
+                                priority
+                            />
+                        </Link>
+                    </div>
 
-          {/* Right Side */}
-          <div className={Styles.rightSide}>
-            {navbar.button?.isActive && (
-              <Link href={navbar.button.href} className={Styles.ctaBtn}>
-                {navbar.button.text}
-              </Link>
+                    {/* Desktop Menu */}
+                    <nav className={Styles.desktopNav}>
+                        <ul>
+                            {navbar.menuItems
+                                ?.filter((i) => i.isActive)
+                                .sort((a, b) => a.order - b.order)
+                                .map((item) => (
+                                    <li key={item._id}>
+                                        <Link href={item.href}>{item.label}</Link>
+                                    </li>
+                                ))}
+                        </ul>
+                    </nav>
+
+                    {/* Right Side */}
+                    <div className={Styles.rightSide}>
+                        {navbar.button?.isActive && (
+                            <Link href={navbar.button.href} className={Styles.ctaBtn}>
+                                {navbar.button.text}
+                            </Link>
+                        )}
+                        <button
+                            className={Styles.hamburgerBtn}
+                            onClick={() => setIsMenuOpen(true)}
+                        >
+                            <FontAwesomeIcon icon={faBars} />
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            {/* Overlay */}
+            {isMenuOpen && (
+                <div
+                    className={Styles.overlay}
+                    onClick={() => setIsMenuOpen(false)}
+                />
             )}
 
-            <button
-              className={Styles.hamburgerBtn}
-              onClick={() => setIsMenuOpen(true)}
+            {/* Mobile Menu */}
+            <div
+                className={`${Styles.mobileMenu} ${isMenuOpen ? Styles.showMenu : ""
+                    }`}
             >
-              <FontAwesomeIcon icon={faBars} />
-            </button>
-          </div>
-        </div>
-      </header>
+                <button
+                    className={Styles.closeBtn}
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                    <FontAwesomeIcon icon={faXmark} />
+                </button>
 
-      {/* Overlay */}
-      {isMenuOpen && (
-        <div
-          className={Styles.overlay}
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
+                <ul>
+                    {navbar.menuItems?.map((item) => (
+                        <li key={item._id}>
+                            <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
-      {/* Mobile Menu */}
-      <div
-        className={`${Styles.mobileMenu} ${
-          isMenuOpen ? Styles.showMenu : ""
-        }`}
-      >
-        <button
-          className={Styles.closeBtn}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
-
-        <ul>
-          {navbar.menuItems?.map((item) => (
-            <li key={item._id}>
-              <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className={Styles.csocaisl}>
-          {navbar.socials?.linkedin && (
-            <a href={navbar.socials.linkedin} target="_blank">
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
-          )}
-          {navbar.socials?.youtube && (
-            <a href={navbar.socials.youtube} target="_blank">
-              <FontAwesomeIcon icon={faYoutube} />
-            </a>
-          )}
-          {navbar.socials?.instagram && (
-            <a href={navbar.socials.instagram} target="_blank">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-          )}
-          {navbar.socials?.twitter && (
-            <a href={navbar.socials.twitter} target="_blank">
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-          )}
-          {navbar.socials?.tiktok && (
-            <a href={navbar.socials.tiktok} target="_blank">
-              <FontAwesomeIcon icon={faTiktok} />
-            </a>
-          )}
-        </div>
-      </div>
-    </>
-  );
+                <div className={Styles.csocaisl}>
+                    {navbar.socials?.linkedin && (
+                        <a href={navbar.socials.linkedin} target="_blank">
+                            <FontAwesomeIcon icon={faLinkedin} />
+                        </a>
+                    )}
+                    {navbar.socials?.youtube && (
+                        <a href={navbar.socials.youtube} target="_blank">
+                            <FontAwesomeIcon icon={faYoutube} />
+                        </a>
+                    )}
+                    {navbar.socials?.instagram && (
+                        <a href={navbar.socials.instagram} target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </a>
+                    )}
+                    {navbar.socials?.twitter && (
+                        <a href={navbar.socials.twitter} target="_blank">
+                            <FontAwesomeIcon icon={faTwitter} />
+                        </a>
+                    )}
+                    {navbar.socials?.tiktok && (
+                        <a href={navbar.socials.tiktok} target="_blank">
+                            <FontAwesomeIcon icon={faTiktok} />
+                        </a>
+                    )}
+                </div>
+            </div>
+        </>
+    );
 }

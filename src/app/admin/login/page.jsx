@@ -11,16 +11,10 @@ export default function Login() {
   const [error, setError] = useState("");
 
   const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-      remember: false,
-    },
+    initialValues: { email: "", password: "", remember: false },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
-      password: Yup.string().required("Password is required"),
+      email: Yup.string().email("Invalid email").required("Email required"),
+      password: Yup.string().required("Password required"),
     }),
     onSubmit: async (values) => {
       setError("");
@@ -35,21 +29,18 @@ export default function Login() {
         const data = await res.json();
 
         if (res.ok) {
-          // Save JWT in cookie or localStorage
-          if (values.remember) {
-            localStorage.setItem("adminToken", data.token);
-          } else {
-            sessionStorage.setItem("adminToken", data.token);
-          }
+          // Save token in cookie (accessible by server)
+          document.cookie = `admin_token=${data.token}; path=/; ${values.remember ? "max-age=31536000" : ""
+            }`;
 
-          alert("Login successful!");
+
           router.push("/admin"); // redirect to admin dashboard
         } else {
-          setError(data.message);
+          setError(data.message || "Wrong credentials");
         }
       } catch (err) {
         console.error(err);
-        setError("Wrong Credentials!");
+        setError("Login failed");
       }
     },
   });
@@ -61,59 +52,41 @@ export default function Login() {
           <h2 className="text-center mb-4">Admin Login</h2>
 
           <form onSubmit={formik.handleSubmit}>
-            {/* Email */}
             <div className="form-floating mb-3">
               <input
                 type="email"
-                className={`form-control ${
-                  formik.touched.email && formik.errors.email ? "is-invalid" : ""
-                }`}
-                id="email"
-                name="email"
+                className={`form-control ${formik.touched.email && formik.errors.email ? "is-invalid" : ""
+                  }`}
                 placeholder="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                {...formik.getFieldProps("email")}
               />
-              <label htmlFor="email">Email address</label>
-              {formik.touched.email && formik.errors.email ? (
+              <label>Email address</label>
+              {formik.touched.email && formik.errors.email && (
                 <div className="invalid-feedback">{formik.errors.email}</div>
-              ) : null}
+              )}
             </div>
 
-            {/* Password */}
             <div className="form-floating mb-3">
               <input
                 type="password"
-                className={`form-control ${
-                  formik.touched.password && formik.errors.password ? "is-invalid" : ""
-                }`}
-                id="password"
-                name="password"
+                className={`form-control ${formik.touched.password && formik.errors.password ? "is-invalid" : ""
+                  }`}
                 placeholder="Password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                {...formik.getFieldProps("password")}
               />
-              <label htmlFor="password">Password</label>
-              {formik.touched.password && formik.errors.password ? (
+              <label>Password</label>
+              {formik.touched.password && formik.errors.password && (
                 <div className="invalid-feedback">{formik.errors.password}</div>
-              ) : null}
+              )}
             </div>
 
-            {/* Remember Me */}
             <div className="form-check mb-3">
               <input
-                className="form-check-input"
                 type="checkbox"
-                id="remember"
-                name="remember"
-                checked={formik.values.remember}
-                onChange={formik.handleChange}
+                className="form-check-input"
+                {...formik.getFieldProps("remember")}
               />
-              <label className="form-check-label" htmlFor="remember">
-                Remember Me
-              </label>
+              <label className="form-check-label">Remember Me</label>
             </div>
 
             {error && <div className="alert alert-danger">{error}</div>}
