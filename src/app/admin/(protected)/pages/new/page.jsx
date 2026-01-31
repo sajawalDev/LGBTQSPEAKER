@@ -1,62 +1,59 @@
-"use client"; // because we have interactive form
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function CreatePage() {
+export default function NewPage() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
-  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSave = async () => {
-    // Replace this with your actual API call
-    console.log("Saving new page:", { title, slug, description });
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
 
-    // After saving, redirect to pages list
+    const res = await fetch("/api/admin/pages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, slug }),
+    });
+
+    setLoading(false);
+
+    if (!res.ok) {
+      alert("Failed to create page");
+      return;
+    }
+
     router.push("/admin/pages");
-  };
+  }
 
   return (
-    <div>
-      <h2 className="fw-bold mb-4">Create New Page</h2>
+    <div className="container py-4" style={{ maxWidth: 600 }}>
+      <h2>Create New Page</h2>
 
-      {/* Page Title */}
-      <div className="mb-3">
-        <label className="form-label">Page Title</label>
+      <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          className="form-control"
+          className="form-control mb-3"
+          placeholder="Page Title (Home, About...)"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
-      </div>
 
-      {/* Page Slug */}
-      <div className="mb-3">
-        <label className="form-label">Slug</label>
         <input
-          type="text"
-          className="form-control"
+          className="form-control mb-3"
+          placeholder="Slug (home, about, services)"
           value={slug}
-          onChange={(e) => setSlug(e.target.value)}
-          placeholder="e.g., home, about, contact"
+          onChange={(e) => setSlug(e.target.value.toLowerCase())}
+          required
         />
-      </div>
 
-      {/* Page Description */}
-      <div className="mb-3">
-        <label className="form-label">Description</label>
-        <textarea
-          className="form-control"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-
-      <button className="btn btn-success" onClick={handleSave}>
-        Save Page
-      </button>
+        <button className="btn btn-primary" disabled={loading}>
+          {loading ? "Creating..." : "Create Page"}
+        </button>
+      </form>
     </div>
   );
 }

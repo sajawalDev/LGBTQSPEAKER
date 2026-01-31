@@ -80,14 +80,16 @@
     margin-top: 25px;
 }
 
-.WhoamiBtnz button {
+.WhoamiBtnz a {
     border: none;
     outline: none;
     border-radius: 10px;
     padding: 14px 22px;
+    text-decoration: none;
 }
 
 .Play {
+
     background: #CF92F4;
     color: #000;
 }

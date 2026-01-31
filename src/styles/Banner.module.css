@@ -10,11 +10,16 @@
   inset: 0;
   opacity: 0;
   transition: opacity 0.6s ease;
+  pointer-events: none;   /* 🔑 IMPORTANT */
+  z-index: 1;
 }
 
 .active {
   opacity: 1;
+  pointer-events: auto;  /* 🔑 IMPORTANT */
+  z-index: 2;
 }
+
 
 /* IMAGE – FACE SAFE */
 .bannerImg {
@@ -59,7 +64,19 @@
   font-size: 20px;
   line-height: 1.5;
 }
-
+.descBox a{
+  margin-bottom: 20px;
+  color: #fff;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+.descBox a:hover{
+  background: #ffff;
+  color: #000;
+  border: none;
+  transition: .5s ease;
+}
 /* DOTS */
 .dotsWrapper {
   position: absolute;
@@ -72,17 +89,19 @@
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: #ffffff80;
   border-radius: 50%;
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .activeDot {
   background: #fff;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
+
 @media(max-width:1010px){
   .titleBox{
     top: 60px;
