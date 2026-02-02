@@ -1,7 +1,7 @@
 import Styles from "@/styles/terms-&-condition.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, } from "@fortawesome/free-solid-svg-icons";
-import FAQs from "@/components/Home/FAQs";
+import FAQs from "@/components/Home/FAQClient";
 import NewsLetter from "@/components/Home/NewsLetter";
 export default function TermsConditions() {
     return (

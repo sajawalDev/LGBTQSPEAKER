@@ -7,6 +7,9 @@ import BannerSectionEditor from "@/components/section-editors/BannerEditor";
 import WhoAmISectionEditor from "@/components/section-editors/WhoIamEditor";
 import ServicesEditor from "@/components/section-editors/ServicesEditor";
 import ReviewsEditor from "@/components/section-editors/ReviewsEditor";
+import ImagesAdmin from "@/components/section-editors/ImagesEditor";
+import BlogEditor from "@/components/section-editors/BlogEditor";
+import AdminGalleryPage from "@/components/section-editors/AdminGallery";
 export default function SectionEditorPage() {
   const { slug, sectionId } = useParams();
   const [section, setSection] = useState(null);
@@ -37,7 +40,13 @@ export default function SectionEditorPage() {
     case "Services":
       return <ServicesEditor section={section}/>  ;
     case "Reviews":
-      return <ReviewsEditor section={section}/>
+      return <ReviewsEditor section={section}/>;
+    case "Images":
+       return <ImagesAdmin section={section}/>;  
+    case "Blog":
+      return <BlogEditor section={section}/>;   
+    case "Gallery":
+      return <AdminGalleryPage section={section}/>;  
     default:
       return <p>Unknown section type: {section.type}</p>;
   }

@@ -29,7 +29,28 @@ export default async function AdminLayout({ children }) {
                 <Link href="/admin/navbar" className="nav-link text-white">Navbar</Link>
               </li>
               <li className="nav-item">
+                <Link href="/admin/footer" className="nav-link text-white">Footer</Link>
+              </li>
+              <li className="nav-item">
                 <Link href="/admin/pages" className="nav-link text-white">Pages</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/faq" className="nav-link text-white">FAQs</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/newsletter" className="nav-link text-white">NewsLetter</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/emails" className="nav-link text-white">Emails</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/contact" className="nav-link text-white">Contact</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/seo" className="nav-link text-white">SEO</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/admin/setting" className="nav-link text-white">Setting</Link>
               </li>
             </ul>
 

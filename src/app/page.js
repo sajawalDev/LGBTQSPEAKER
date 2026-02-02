@@ -2,14 +2,14 @@ import Head from "next/head";
 import Banner from "@/components/Home/BannerServer";
 import WhoIamServer from "@/components/Home/WhoAmIServer";
 import ServicesServer from "@/components/Home/ServicesServer";
-import ImagesSection from "@/components/Home/Images";
-import LatestBlogSection from "@/components/Home/LatestBlog";
-import GallerySection from "@/components/Home/Gallery";
-import FAQs from "@/components/Home/FAQs";
+import ImagesServer from "@/components/Home/ImagesServer";
+import LatestBlogServer from "@/components/Home/LatestBlogServer";
+import GalleryServer from "@/components/Home/GalleryServer";
+import FAQServer from "@/components/Home/FAQServer";
 import NewsLetter from "@/components/Home/NewsLetter";
-import Images from "@/components/Home/Images2";
+// import Images from "@/components/Home/Images2";
 import ReviewsServer from "@/components/Home/ReviesServer";
-import axios from "axios";
+
 
 export default function Home() {
   return (
@@ -27,11 +27,11 @@ export default function Home() {
       <WhoIamServer pageSlug="home" />
       <ServicesServer pageSlug="home" />
       <ReviewsServer pageSlug="home" />
-      <Images />
-      <ImagesSection />
-      <LatestBlogSection />
-      <GallerySection />
-      <FAQs />
+      <ImagesServer pageSlug="home"/>
+      {/* <ImagesSection /> */}
+      <LatestBlogServer pageSlug="home"/>
+      <GalleryServer pageSlug="home"/>
+      <FAQServer/>
       <NewsLetter />
     </>
   )

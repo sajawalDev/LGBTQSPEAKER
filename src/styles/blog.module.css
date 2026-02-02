@@ -26,7 +26,9 @@
     display: flex;
     justify-content: space-between;
 }
-.socail p span{
+.socail p span a{
+    text-decoration: none;
+    color: #091D2D;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 3px;
