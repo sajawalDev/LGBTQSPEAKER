@@ -1,7 +1,7 @@
 import Styles from "@/styles/cookie-policy.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, } from "@fortawesome/free-solid-svg-icons";
-import FAQs from "@/components/Home/FAQClient";
+// import FAQs from "@/components/Home/FAQClient";
 import NewsLetter from "@/components/Home/NewsLetter";
 export default function CookiePolicy() {
     return (
@@ -33,7 +33,7 @@ export default function CookiePolicy() {
                         <p>If you have any questions or concerns about our use of cookies, please contact us .</p>
                     </div>
                 </div>
-                <FAQs/>
+                {/* <FAQs/> */}
                 <NewsLetter/>
             </section>
         </>

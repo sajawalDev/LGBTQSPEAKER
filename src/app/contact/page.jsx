@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faTwitter, faLinkedin, faYoutube,faTiktok } from "@fortawesome/free-brands-svg-icons";
 import NewsLetter from "@/components/Home/NewsLetter";
-import FAQs from "@/components/Home/FAQClient";
+// import FAQs from "@/components/Home/FAQClient";
 import Head from "next/head";
 export default function Contact() {
     return (
@@ -94,7 +94,7 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-                <FAQs />
+                {/* <FAQs /> */}
                 <NewsLetter />
             </section>
 

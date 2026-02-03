@@ -1,7 +1,7 @@
 import Styles from "@/styles/terms-&-condition.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, } from "@fortawesome/free-solid-svg-icons";
-import FAQs from "@/components/Home/FAQClient";
+// import FAQs from "@/components/Home/FAQClient";
 import NewsLetter from "@/components/Home/NewsLetter";
 export default function TermsConditions() {
     return (
@@ -53,7 +53,7 @@ export default function TermsConditions() {
                         <p>By accessing this website, you accept these terms and conditions in full. If you disagree with these terms and conditions or any part of these terms and conditions, you must not use this website.</p>
                     </div>
                 </div>
-                <FAQs />
+                {/* <FAQs /> */}
                 <NewsLetter />
             </section>
         </>

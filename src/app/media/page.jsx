@@ -3,7 +3,7 @@ import Styles from "@/styles/media.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import FAQs from "@/components/Home/FAQClient";
+// import FAQs from "@/components/Home/FAQClient";
 import NewsLetter from "@/components/Home/NewsLetter";
 import Head from "next/head";
 const img1 = "/media/img1.png"
@@ -93,7 +93,7 @@ export default function Media() {
                         </div>
                     </div>
                 </div>
-                <FAQs/>
+                {/* <FAQs/> */}
                 <NewsLetter/>
             </section>
 

@@ -2,7 +2,7 @@
 import Styles from "@/styles/about.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faGear, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
-import FAQs from "@/components/Home/FAQClient";
+// import FAQs from "@/components/Home/FAQClient";
 import NewsLetter from "@/components/Home/NewsLetter";
 import WhyChooseUs from "@/components/Home/WhyChooseUs";
 import Link from "next/link";
@@ -64,7 +64,7 @@ export default function About() {
                 </p>
                 <button><span><FontAwesomeIcon icon={faPhone} /></span>Give us a call today</button>
             </section>
-            <FAQs />
+            {/* <FAQs /> */}
             <NewsLetter />
         </>
     )
