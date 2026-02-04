@@ -1,8 +1,8 @@
 import Styles from "@/styles/privacy-policy.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, } from "@fortawesome/free-solid-svg-icons";
-// import FAQs from "@/components/Home/FAQClient";
-import NewsLetter from "@/components/Home/NewsLetter";
+import FAQServer from "@/components/Home/FAQServer";
+import NewsLetterServer from "@/components/Home/NewsLetterServer";
 export default function PrivacyPolicy() {
     return (
         <>
@@ -44,8 +44,8 @@ export default function PrivacyPolicy() {
                         <p>If you have any questions or concerns about this Privacy Policy, please contact .</p>
                     </div>
                 </div>
-                {/* <FAQs /> */}
-                <NewsLetter />
+                <FAQServer/>
+                <NewsLetterServer/>
             </section>
         </>
     )

@@ -6,7 +6,7 @@ import ImagesServer from "@/components/Home/ImagesServer";
 import LatestBlogServer from "@/components/Home/LatestBlogServer";
 import GalleryServer from "@/components/Home/GalleryServer";
 import FAQServer from "@/components/Home/FAQServer";
-import NewsLetter from "@/components/Home/NewsLetter";
+import NewsLetterServer from "@/components/Home/NewsLetterServer";
 // import Images from "@/components/Home/Images2";
 import ReviewsServer from "@/components/Home/ReviesServer";
 
@@ -32,7 +32,7 @@ export default function Home() {
       <LatestBlogServer pageSlug="home"/>
       <GalleryServer pageSlug="home"/>
       <FAQServer/>
-      <NewsLetter />
+      <NewsLetterServer/>
     </>
   )
 }

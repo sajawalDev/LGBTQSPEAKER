@@ -10,6 +10,10 @@ import ReviewsEditor from "@/components/section-editors/ReviewsEditor";
 import ImagesAdmin from "@/components/section-editors/ImagesEditor";
 import BlogEditor from "@/components/section-editors/BlogEditor";
 import AdminGalleryPage from "@/components/section-editors/AdminGallery";
+import AdminAboutEditor from "@/components/section-editors/AboutEditor";
+import WhyChooseUsEditor from "@/components/section-editors/WhyChooseUsEditor";
+import AdminMediaEditor from "@/components/section-editors/AdminMediaEditor";
+import AdminContactEditor from "@/components/section-editors/AdminContactEditor";
 export default function SectionEditorPage() {
   const { slug, sectionId } = useParams();
   const [section, setSection] = useState(null);
@@ -38,15 +42,23 @@ export default function SectionEditorPage() {
       return <WhoAmISectionEditor section={section} />;
 
     case "Services":
-      return <ServicesEditor section={section}/>  ;
+      return <ServicesEditor section={section} />;
     case "Reviews":
-      return <ReviewsEditor section={section}/>;
+      return <ReviewsEditor section={section} />;
     case "Images":
-       return <ImagesAdmin section={section}/>;  
+      return <ImagesAdmin section={section} />;
     case "Blog":
-      return <BlogEditor section={section}/>;   
+      return <BlogEditor section={section} />;
     case "Gallery":
-      return <AdminGalleryPage section={section}/>;  
+      return <AdminGalleryPage section={section} />;
+    case "About Content":
+      return <AdminAboutEditor />
+    case "Why Choose Us":
+        return <WhyChooseUsEditor section={section}/>
+    case "Media Editor":
+       return <AdminMediaEditor/>    
+    case "Contact Editor":
+      return <AdminContactEditor/>   
     default:
       return <p>Unknown section type: {section.type}</p>;
   }

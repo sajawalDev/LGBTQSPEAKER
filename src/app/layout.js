@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import Navbar from "@/components/navbar/Navbar.server";
-import Footer from "@/components/Home/Footer";
+import FooterServer from "@/components/Home/FooterServer";
 import LayoutClient from "@/components/LayoutClient";
 import BootstrapClient from "@/components/BootstrapClient";
 
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         {/* Client wrapper decides what to show */}
         <LayoutClient
           navbar={<Navbar />}
-          footer={<Footer />}
+          footer={<FooterServer />}
         >
           {children}
         </LayoutClient>
