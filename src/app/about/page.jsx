@@ -70,9 +70,32 @@ import AboutServer from "./AboutServer";
 import WhyChooseUsServer from "@/components/Home/WhyChooseUsServer";
 import FAQServer from "@/components/Home/FAQServer";
 import NewsLetterServer from "@/components/Home/NewsLetterServer";
-export const metadata = {
-  title: "About | Whittington Consulting",
-};
+import { connectDB } from "@/lib/mongodb";
+import Seo from "@/models/Seo";
+export async function generateMetadata() {
+  await connectDB();
+
+  const seo = await Seo.findOne({ page: "about" }).lean();
+
+  if (!seo) return {};
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: seo.canonical || undefined,
+    },
+    robots: {
+      index: !seo.noIndex,
+      follow: !seo.noFollow,
+    },
+    openGraph: {
+      title: seo.ogTitle || seo.title,
+      description: seo.ogDescription || seo.description,
+      images: seo.ogImage ? [seo.ogImage] : [],
+    },
+  };
+}
 
 export default function AboutPage() {
   return(

@@ -11,6 +11,32 @@ import {
   faYoutube,
   faTiktok
 } from "@fortawesome/free-brands-svg-icons";
+// import { connectDB } from "@/lib/mongodb";
+import Seo from "@/models/Seo";
+export async function generateMetadata() {
+  await connectDB();
+
+  const seo = await Seo.findOne({ page: "blog" }).lean();
+
+  if (!seo) return {};
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: seo.canonical || undefined,
+    },
+    robots: {
+      index: !seo.noIndex,
+      follow: !seo.noFollow,
+    },
+    openGraph: {
+      title: seo.ogTitle || seo.title,
+      description: seo.ogDescription || seo.description,
+      images: seo.ogImage ? [seo.ogImage] : [],
+    },
+  };
+}
 export default async function BlogDetail() {
   await connectDB();
   const blog = await Blog.findOne({ slug: "main-blog" }).lean();
@@ -19,9 +45,6 @@ export default async function BlogDetail() {
 
   return (
     <>
-      <Head>
-        <title>{blog.title}</title>
-      </Head>
 
       <section style={{ padding: "80px 0" }}>
         <div className="container">

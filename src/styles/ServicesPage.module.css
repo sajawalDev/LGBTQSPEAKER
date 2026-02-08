@@ -1,74 +1,52 @@
 .ServicespageSection {
-  padding: 80px 0;
+  padding: 90px 0;
+  text-align: center;
 }
 
-.servicesWrapper {
-  display: grid;
-  grid-template-columns: 4fr 8fr;
-  gap: 40px;
+.pageHeading {
+  font-size: 42px;
+  margin-bottom: 40px;
 }
 
-/* LEFT LIST */
-.servicesList {
-  border-right: 1px solid #ddd;
-  padding-right: 30px;
+.servicesTabs {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
 }
 
 .serviceItem {
   background: none;
   border: none;
-  text-align: left;
   font-size: 18px;
-  font-weight: 500;
   cursor: pointer;
   padding-bottom: 6px;
   color: #444;
-  transition: all 0.3s ease;
-}
-
-.serviceItem:hover {
-  color: #CF92F4;
 }
 
 .active {
-  color: #CF92F4;
-  border-bottom: 4px solid #CF92F4;
+  color: #cf92f4;
+  border-bottom: 3px solid #cf92f4;
 }
 
-/* RIGHT CONTENT */
-.serviceContent h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
+.serviceContent {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
 }
 
-.serviceContent p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  color: #555;
+.serviceContent img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 30px 0;
 }
 
-.serviceContent ul {
-  padding-left: 20px;
-}
-
-.serviceContent li {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .servicesWrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .servicesList {
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-  }
+.ctaButton {
+  display: inline-block;
+  margin-top: 30px;
+  background: #cf92f4;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
 }

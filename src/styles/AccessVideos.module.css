@@ -1,0 +1,126 @@
+.gateWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); */
+}
+
+.gateCard {
+  background: #fff;
+  padding: 40px;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #7A2D87;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #7A2D87;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+@media (max-width: 992px) {
+  .videoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.videoCard {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.videoCard video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.playIcon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+  transition: transform 0.3s;
+  border: none;
+}
+
+.videoCard:hover .playIcon {
+  transform: scale(1.15);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal video {
+  width: 90%;
+  max-width: 900px;
+}

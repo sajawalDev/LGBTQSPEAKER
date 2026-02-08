@@ -101,6 +101,32 @@
 import MediaServer from "./MediaServer";
 import FAQServer from "@/components/Home/FAQServer";
 import NewsLetterServer from "@/components/Home/NewsLetterServer";
+import { connectDB } from "@/lib/mongodb";
+import Seo from "@/models/Seo";
+export async function generateMetadata() {
+  await connectDB();
+
+  const seo = await Seo.findOne({ page: "media" }).lean();
+
+  if (!seo) return {};
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: seo.canonical || undefined,
+    },
+    robots: {
+      index: !seo.noIndex,
+      follow: !seo.noFollow,
+    },
+    openGraph: {
+      title: seo.ogTitle || seo.title,
+      description: seo.ogDescription || seo.description,
+      images: seo.ogImage ? [seo.ogImage] : [],
+    },
+  };
+}
 export default function Media(){
     return(
         <>

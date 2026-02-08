@@ -14,6 +14,8 @@ import AdminAboutEditor from "@/components/section-editors/AboutEditor";
 import WhyChooseUsEditor from "@/components/section-editors/WhyChooseUsEditor";
 import AdminMediaEditor from "@/components/section-editors/AdminMediaEditor";
 import AdminContactEditor from "@/components/section-editors/AdminContactEditor";
+import AdminServicesEditor from "@/components/section-editors/AdminServiceEditor";
+import AdminVideoEditor from "@/components/section-editors/AdminVideoEditor";
 export default function SectionEditorPage() {
   const { slug, sectionId } = useParams();
   const [section, setSection] = useState(null);
@@ -59,6 +61,10 @@ export default function SectionEditorPage() {
        return <AdminMediaEditor/>    
     case "Contact Editor":
       return <AdminContactEditor/>   
+    case "Services Editor":
+      return <AdminServicesEditor/>  
+    case "Edit Videos":
+      return <AdminVideoEditor/>  
     default:
       return <p>Unknown section type: {section.type}</p>;
   }
