@@ -1,151 +1,225 @@
-.ContactSection{
-    margin-top: 100px;
+/* ---------- Contact Section ---------- */
+.ContactSection {
+  margin-top: 100px;
 }
-.ContactContainer{
-    width: 80%;
-    margin: 0 auto;
-    background: #F7F8FB;
-    text-align: center;
-    padding:80px 0;
+
+.ContactContainer {
+  width: 80%;
+  margin: 0 auto;
+  background: #F7F8FB;
+  text-align: center;
+  padding: 80px 0;
 }
+
 .ContactContainer h1 {
-    font-size: 55px;
-    color: #091D2D;
-    font-weight: 650;
+  font-size: 55px;
+  color: #091D2D;
+  font-weight: 650;
 }
-.ContactContent{
-    padding-bottom:30px;
-    border-bottom: 1px solid gray;
+
+/* ---------- Contact Content ---------- */
+.ContactContent {
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
 }
-.ContactContent h5{
-    color: #091D2D;
+
+.ContactContent h5 {
+  color: #091D2D;
 }
-.ContactContent h2{
-    color: #091D2D;
-    font-weight: 650;
-    font-size: 43px;
+
+.ContactContent h2 {
+  color: #091D2D;
+  font-weight: 650;
+  font-size: 43px;
 }
-.ContactContent p{
-    color: #556775;
+
+.ContactContent p {
+  color: #556775;
 }
-.ContactCard{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    
+
+/* ---------- Contact Card ---------- */
+.ContactCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
 .ContactC {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    transition: all 0.3s ease;
-    background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  transition: all 0.3s ease;
+  background: #fff;
 }
 
 .ContactC:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .ContactC p {
-    color: #091D2D;
-    font-size: 22px;
-    margin-right: 12px;
-    padding: 10px 12px;
-    border-radius: 5px;
-    background: #CF92F4;
+  color: #fff;
+  font-size: 22px;
+  margin-right: 12px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: #CF92F4;
 }
+
+/* ---------- Contact Form ---------- */
 .ContactForm {
-    background: #ffffff;
-    padding: 35px;
-    border-radius: 12px;
-    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); */
-    border: 1px solid gray;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid gray;
+  position: relative; /* ensures spinner stays inside button */
+  z-index: 1;
 }
 
 .ContactForm h3 {
-    margin-bottom: 25px;
-    color: #091D2D;
-    font-weight: 650;
+  margin-bottom: 25px;
+  color: #091D2D;
+  font-weight: 650;
 }
 
 .FormGroup {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .FormGroup input,
 .FormGroup textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    outline: none;
-    transition: border 0.3s ease;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s ease;
 }
 
 .FormGroup input:focus,
 .FormGroup textarea:focus {
-    border-color: #CF92F4;
+  border-color: #CF92F4;
 }
 
+/* ---------- Send Button ---------- */
 .SendBtn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #091D2D;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #091D2D;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .SendBtn:hover {
-    background: #b678e0;
-    transform: translateY(-2px);
-}
-.SocialMedia{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-}
-.SocialMedia p span{
-    margin: 0 8px;
-    color: #091D2D;
-    padding: 6px;
-    border-radius: 2px;
-    border: 1px solid gray;
-}
-.SocialMedia p span a{
-    text-decoration: none;
-    color: #091D2D;
-}
-@media(max-width:576px){
-    .ContactSection{
-    margin-top: 50px;
-}
-.ContactContainer{
-    width: 85%;
-    margin: 0 auto;
-    background: #F7F8FB;
-    text-align: center;
-    padding:60px 0;
-}
-.ContactContainer h1 {
-    font-size: 50px;
-    color: #091D2D;
-    font-weight: 650;
-}
-.ContactForm {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); */
-    border: 1px solid gray;
+  background: #b678e0;
+  transform: translateY(-2px);
 }
 
+/* ---------- Spinner Overlay ---------- */
+.spinnerOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ---------- Social Media ---------- */
+.SocialMedia {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.SocialMedia p span {
+  margin: 0 8px;
+  color: #091D2D;
+  padding: 6px;
+  border-radius: 2px;
+  border: 1px solid gray;
+}
+
+.SocialMedia p span a {
+  text-decoration: none;
+  color: #091D2D;
+}
+
+/* ---------- Popup Overlay ---------- */
+.popupOverlay {
+  position: fixed; /* float over page without shifting layout */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* above everything */
+}
+
+/* ---------- Popup Box ---------- */
+.popupBox {
+  background: #ffffff;
+  max-width: 420px;
+  width: 90%;
+  padding: 28px 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: popupFade 0.25s ease-in-out;
+}
+
+.popupBox h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #111;
+}
+
+.popupBox p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ---------- Popup Animation ---------- */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 576px) {
+  .ContactSection {
+    margin-top: 50px;
+  }
+  .ContactContainer {
+    width: 85%;
+    padding: 60px 0;
+  }
+  .ContactContainer h1 {
+    font-size: 50px;
+  }
+  .ContactForm {
+    padding: 15px;
+  }
 }

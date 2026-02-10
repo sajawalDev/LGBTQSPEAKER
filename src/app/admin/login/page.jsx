@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Styles from "@/styles/Login.module.css";
+const logo = "/images/Whittington-Logo.png";
 
 export default function Login() {
   const router = useRouter();
@@ -29,12 +30,11 @@ export default function Login() {
         const data = await res.json();
 
         if (res.ok) {
-          // Save token in cookie (accessible by server)
-          document.cookie = `admin_token=${data.token}; path=/; ${values.remember ? "max-age=31536000" : ""
-            }`;
+          document.cookie = `admin_token=${data.token}; path=/; ${
+            values.remember ? "max-age=31536000" : ""
+          }`;
 
-
-          router.push("/admin"); // redirect to admin dashboard
+          router.push("/admin");
         } else {
           setError(data.message || "Wrong credentials");
         }
@@ -46,37 +46,60 @@ export default function Login() {
   });
 
   return (
-    <div className={`d-flex justify-content-center align-items-center vh-100 ${Styles.loginContainer}`}>
+    <div
+      className={`d-flex justify-content-center align-items-center vh-100 ${Styles.loginContainer}`}
+    >
       <div className="col-12 col-md-4">
         <div className="card shadow p-4">
-          <h2 className="text-center mb-4">Admin Login</h2>
+
+          {/* LOGO */}
+          <div className="text-center mb-4">
+            <img
+              src={logo}
+              alt="Admin Logo"
+              style={{
+                maxWidth: "180px",
+                height: "auto",
+              }}
+            />
+          </div>
 
           <form onSubmit={formik.handleSubmit}>
             <div className="form-floating mb-3">
               <input
                 type="email"
-                className={`form-control ${formik.touched.email && formik.errors.email ? "is-invalid" : ""
-                  }`}
+                className={`form-control ${
+                  formik.touched.email && formik.errors.email
+                    ? "is-invalid"
+                    : ""
+                }`}
                 placeholder="Email"
                 {...formik.getFieldProps("email")}
               />
               <label>Email address</label>
               {formik.touched.email && formik.errors.email && (
-                <div className="invalid-feedback">{formik.errors.email}</div>
+                <div className="invalid-feedback">
+                  {formik.errors.email}
+                </div>
               )}
             </div>
 
             <div className="form-floating mb-3">
               <input
                 type="password"
-                className={`form-control ${formik.touched.password && formik.errors.password ? "is-invalid" : ""
-                  }`}
+                className={`form-control ${
+                  formik.touched.password && formik.errors.password
+                    ? "is-invalid"
+                    : ""
+                }`}
                 placeholder="Password"
                 {...formik.getFieldProps("password")}
               />
               <label>Password</label>
               {formik.touched.password && formik.errors.password && (
-                <div className="invalid-feedback">{formik.errors.password}</div>
+                <div className="invalid-feedback">
+                  {formik.errors.password}
+                </div>
               )}
             </div>
 

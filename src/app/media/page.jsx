@@ -101,12 +101,10 @@
 import MediaServer from "./MediaServer";
 import FAQServer from "@/components/Home/FAQServer";
 import NewsLetterServer from "@/components/Home/NewsLetterServer";
-import { connectDB } from "@/lib/mongodb";
-import Seo from "@/models/Seo";
+import { getSeoByPage } from "@/lib/seo";
 export async function generateMetadata() {
-  await connectDB();
 
-  const seo = await Seo.findOne({ page: "media" }).lean();
+  const seo = await getSeoByPage("media")
 
   if (!seo) return {};
 

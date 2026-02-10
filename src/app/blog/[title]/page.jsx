@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/mongodb";
 import Styles from "@/styles/blog.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import Head from "next/head";
+import { getSeoByPage } from "@/lib/seo";
 import {
   faInstagram,
   faTwitter,
@@ -12,11 +12,9 @@ import {
   faTiktok
 } from "@fortawesome/free-brands-svg-icons";
 // import { connectDB } from "@/lib/mongodb";
-import Seo from "@/models/Seo";
 export async function generateMetadata() {
-  await connectDB();
 
-  const seo = await Seo.findOne({ page: "blog" }).lean();
+  const seo = await getSeoByPage("blog");
 
   if (!seo) return {};
 

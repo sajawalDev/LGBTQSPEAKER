@@ -8,12 +8,10 @@ import FAQServer from "@/components/Home/FAQServer";
 import NewsLetterServer from "@/components/Home/NewsLetterServer";
 // import Images from "@/components/Home/Images2";
 import ReviewsServer from "@/components/Home/ReviesServer";
-import { connectDB } from "@/lib/mongodb";
-import Seo from "@/models/Seo";
+import { getSeoByPage } from "@/lib/seo";
 export async function generateMetadata() {
-  await connectDB();
-
-  const seo = await Seo.findOne({ page: "home" }).lean();
+  
+  const seo = await getSeoByPage("home");
 
   if (!seo) return {};
 

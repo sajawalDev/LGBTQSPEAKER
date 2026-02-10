@@ -84,12 +84,10 @@
 // }
 
 import ServicesServer from "./ServicesServer";
-import { connectDB } from "@/lib/mongodb";
-import Seo from "@/models/Seo";
+import { getSeoByPage } from "@/lib/seo";
 export async function generateMetadata() {
-  await connectDB();
 
-  const seo = await Seo.findOne({ page: "services" }).lean();
+  const seo = await getSeoByPage("services");
 
   if (!seo) return {};
 

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Resend } from "resend";
+
 
 const CLOUDINARY_UPLOAD_URL =
     "https://api.cloudinary.com/v1_1/dajnvtjci/video/upload";
@@ -13,6 +15,7 @@ export default function AdminVideoEditor() {
     const [title, setTitle] = useState("");
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
+
 
     /* =========================
        Fetch videos
@@ -31,6 +34,12 @@ export default function AdminVideoEditor() {
         fetchVideos();
     }, []);
 
+    /* =========================
+       Upload video
+    ========================= */
+    /* =========================
+   Upload video
+========================= */
     /* =========================
        Upload video
     ========================= */
@@ -57,12 +66,10 @@ export default function AdminVideoEditor() {
             const cloudData = await cloudRes.json();
 
             if (!cloudRes.ok || !cloudData.secure_url) {
-                throw new Error(
-                    cloudData.error?.message || "Cloudinary upload failed"
-                );
+                throw new Error(cloudData.error?.message || "Cloudinary upload failed");
             }
 
-            /* 2️⃣ Save metadata in backend */
+            /* 2️⃣ Save video metadata in backend */
             const apiRes = await fetch("/api/admin/free-videos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -78,15 +85,39 @@ export default function AdminVideoEditor() {
                 throw new Error("Backend save failed");
             }
 
+            /* 3️⃣ Send email notifications via server-side API */
+            const emailRes = await fetch("/api/admin/send-new-video", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ videoTitle: title, videoUrl: cloudData.secure_url }),
+            });
+
+            let emailData;
+            try {
+                emailData = await emailRes.json();
+                console.log(emailData);
+            } catch (err) {
+                console.error("Failed to parse email API response:", err);
+            }
+
+
+
+            /* 4️⃣ Reset form & refresh video */
             setTitle("");
             setFile(null);
             fetchVideos();
+
+            alert("Video uploaded and notifications sent successfully!");
+
         } catch (err) {
             alert(err.message || "Upload failed");
+            console.error(err);
         } finally {
             setLoading(false);
         }
     };
+
+
 
     /* =========================
        Delete video

@@ -3,12 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, } from "@fortawesome/free-solid-svg-icons";
 import FAQServer from "@/components/Home/FAQServer";
 import NewsLetterServer from "@/components/Home/NewsLetterServer";
-import { connectDB } from "@/lib/mongodb";
-import Seo from "@/models/Seo";
+import { getSeoByPage } from "@/lib/seo";
 export async function generateMetadata() {
-  await connectDB();
 
-  const seo = await Seo.findOne({ page: "terms&conditions" }).lean();
+  const seo = await getSeoByPage("terms&conditions");
 
   if (!seo) return {};
 
