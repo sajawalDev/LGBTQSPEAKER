@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-
+import FullScreenSpinner from "@/components/FullScreenSpinner";
 import BannerSectionEditor from "@/components/section-editors/BannerEditor";
 import WhoAmISectionEditor from "@/components/section-editors/WhoIamEditor";
 import ServicesEditor from "@/components/section-editors/ServicesEditor";
@@ -16,6 +16,7 @@ import AdminMediaEditor from "@/components/section-editors/AdminMediaEditor";
 import AdminContactEditor from "@/components/section-editors/AdminContactEditor";
 import AdminServicesEditor from "@/components/section-editors/AdminServiceEditor";
 import AdminVideoEditor from "@/components/section-editors/AdminVideoEditor";
+
 export default function SectionEditorPage() {
   const { slug, sectionId } = useParams();
   const [section, setSection] = useState(null);
@@ -31,7 +32,7 @@ export default function SectionEditorPage() {
     loadSection();
   }, [slug, sectionId]);
 
-  if (loading) return <p>Loading section...</p>;
+  if (loading) return <FullScreenSpinner/>;
   if (!section) return <p>Section not found</p>;
 
   // 🔑 SWITCH BASED ON SECTION TYPE

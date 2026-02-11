@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import FullScreenSpinner from "../FullScreenSpinner";
 const EMPTY_STATE = {
   image: null,
   imagePreview: "",
@@ -154,7 +154,7 @@ export default function AdminAboutEditor() {
   };
 
   if (initialLoading) {
-    return <p className="p-4">Loading About Editor...</p>;
+    return <FullScreenSpinner/>;
   }
 
   return (

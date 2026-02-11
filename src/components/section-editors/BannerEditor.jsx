@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-
+import FullScreenSpinner from "../FullScreenSpinner";
 const EMPTY_SLIDE = {
   image: "",
   blur: "",
@@ -97,7 +97,7 @@ export default function BannerSectionEditor() {
   }
 
   if (loading) {
-    return <p className="p-4">Loading section...</p>;
+    return <FullScreenSpinner/>;
   }
 
   return (

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-
+import FullScreenSpinner from "@/components/FullScreenSpinner";
 export default function PageEditor() {
   const { slug } = useParams();
   const [page, setPage] = useState(null);
@@ -34,7 +34,7 @@ export default function PageEditor() {
     alert("Page updated");
   }
 
-  if (!page) return <p>Loading page...</p>;
+  if (!page) return <FullScreenSpinner/>;
 
   return (
     <div className="container py-4">

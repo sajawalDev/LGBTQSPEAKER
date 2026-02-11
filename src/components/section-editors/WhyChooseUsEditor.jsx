@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import FullScreenSpinner from "../FullScreenSpinner";
 const EMPTY_STATE = {
     heading: "",
     subHeading: "",
@@ -81,7 +81,7 @@ export default function WhyChooseUsEditor() {
         setWcuData(EMPTY_STATE);
     };
 
-    if (initialLoading) return <p>Loading...</p>;
+    if (initialLoading) return <FullScreenSpinner/>;
 
     return (
         <div className="container py-4">
