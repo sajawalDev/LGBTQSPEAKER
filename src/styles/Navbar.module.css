@@ -113,22 +113,7 @@
 .cContetent p{
     font-size: 12px;
 }
-/* .csocaisl span{
-    background: #e84393;
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-    margin: 0 3px;
-}
-.csocaisl span a{
-    text-decoration: none;
-    color: #fff;
-}
-.csocaisl span:hover{
-    background: #D49DF5;
-    transition: .4s ease;
-} */
- /* Mobile Social Icons at bottom */
+
 .mobileSocial {
   display: flex;
   gap: 12px;
@@ -140,6 +125,7 @@
   background: #e84393;
   color: #fff;
   padding: 10px;
+  padding-bottom: 5px;
   border-radius: 6px;
   display: flex;
   align-items: center;

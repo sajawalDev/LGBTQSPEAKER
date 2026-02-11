@@ -111,32 +111,32 @@ export default function NavbarClient() {
                     ))}
                 </ul>
 
-                <div className={Styles.csocaisl}>
-                    {navbar.socials?.linkedin && (
-                        <a href={navbar.socials.linkedin} target="_blank">
+                <div className={Styles.mobileSocial}>
+                    <span>
+                        <a href="https://www.linkedin.com/">
                             <FontAwesomeIcon icon={faLinkedin} />
                         </a>
-                    )}
-                    {navbar.socials?.youtube && (
-                        <a href={navbar.socials.youtube} target="_blank">
+                    </span>
+                    <span>
+                        <a href="https://www.youtube.com/">
                             <FontAwesomeIcon icon={faYoutube} />
                         </a>
-                    )}
-                    {navbar.socials?.instagram && (
-                        <a href={navbar.socials.instagram} target="_blank">
+                    </span>
+                    <span>
+                        <a href="https://www.instagram.com/">
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>
-                    )}
-                    {navbar.socials?.twitter && (
-                        <a href={navbar.socials.twitter} target="_blank">
+                    </span>
+                    <span>
+                        <a href="https://twitter.com/">
                             <FontAwesomeIcon icon={faTwitter} />
                         </a>
-                    )}
-                    {navbar.socials?.tiktok && (
-                        <a href={navbar.socials.tiktok} target="_blank">
+                    </span>
+                    <span>
+                        <a href="https://www.tiktok.com/">
                             <FontAwesomeIcon icon={faTiktok} />
                         </a>
-                    )}
+                    </span>
                 </div>
             </div>
         </>
