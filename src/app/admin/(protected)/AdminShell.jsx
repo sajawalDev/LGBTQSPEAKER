@@ -21,6 +21,7 @@ export default function AdminShell({ children, session }) {
     { name: "Emails", href: "/admin/emails" },
     { name: "Contact", href: "/admin/contact" },
     { name: "SEO", href: "/admin/seo" },
+    { name: "Bookings", href: "/admin/booking" },
     {name:"Change Email & password",href:"/admin/change-login-credentials"}
   ];
 

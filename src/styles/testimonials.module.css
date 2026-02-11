@@ -1,76 +1,85 @@
-.TestimonialsSection{
-    background: #F7F8FB;
-    padding: 60px 0;
-    margin: 30px 0;
+.wrapper {
+  width: 100%;
+  padding: 80px 20px;
+  background: #f8fafc;
 }
-.TestimonialCard{
-    background: #fff;
-    padding: 30px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin: 14px 0;
-}
-.TestimonialCard p{
-    color: #556787;
-}
-.Stars{
-    color: #F3BB24;
-    font-size: 11px;
-}
-.TestimonialCard h6{
-    font-size: 15px;
-    font-family: 100;
-}
-.TestimoinlsHeadingz{
-    padding: 24px;
-}
-.TestimoinlsHeadingz h2{
-    font-size: 48px;
-    font-weight: 650;
-}
-.TestimoinlsHeadingz button{
-    background: #091D2D;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 12px 28px;
-    border-radius: 12px;
-    transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
 
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
 }
-.TestimoinlsHeadingz button:hover{
-    background: #CF92F4;
-    transform: scale(0.95);
-}
-.TPageHeading{
-    width: 80%;
-    background:#F7F8FB;
-    padding: 100px 0;
-    text-align: center;
-    margin: 40px auto;
-}
-.TPageHeading h1{
-    color: #091D2D;
-    font-weight: bold;
-}
-@media(max-width:571px){
-    .TestimonialCard{
-    background: #fff;
-    padding: 15px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin: 14px 0;
 
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-.TPageHeading{
-    width: 85%;
-    background:#F7F8FB;
-    padding: 60px 0;
-    text-align: center;
-    margin: 40px auto;
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
-.TPageHeading h1{
-    color: #091D2D;
-    font-weight: bold;
+
+/* Text */
+.text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  font-style: italic;
 }
+
+/* Stars */
+.stars {
+  display: flex;
+  gap: 6px;
+  color: #fbbf24;
+  font-size: 14px;
+}
+
+/* Name */
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+/* Company */
+.company {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Position (Optional Extra Info) */
+.position {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .grid {
+    gap: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 30px 20px;
+  }
 }

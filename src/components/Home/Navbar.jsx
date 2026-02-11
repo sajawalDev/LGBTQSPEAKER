@@ -86,7 +86,6 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className={Styles.overlay} onClick={() => setIsMenuOpen(false)} />
       )}
-
       <div className={`${Styles.mobileMenu} ${isMenuOpen ? Styles.showMenu : ""}`}>
         <button className={Styles.closeBtn} onClick={() => setIsMenuOpen(false)}>
           <FontAwesomeIcon icon={faXmark} />
@@ -102,24 +101,36 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className={Styles.csocaisl}>
-          {navbar.socials?.linkedin && (
-            <a href={navbar.socials.linkedin}><FontAwesomeIcon icon={faLinkedin} /></a>
-          )}
-          {navbar.socials?.youtube && (
-            <a href={navbar.socials.youtube}><FontAwesomeIcon icon={faYoutube} /></a>
-          )}
-          {navbar.socials?.instagram && (
-            <a href={navbar.socials.instagram}><FontAwesomeIcon icon={faInstagram} /></a>
-          )}
-          {navbar.socials?.twitter && (
-            <a href={navbar.socials.twitter}><FontAwesomeIcon icon={faTwitter} /></a>
-          )}
-          {navbar.socials?.tiktok && (
-            <a href={navbar.socials.tiktok}><FontAwesomeIcon icon={faTiktok} /></a>
-          )}
+        {/* Mobile Social Icons at bottom */}
+        <div className={Styles.mobileSocial}>
+          <span>
+            <a href="https://www.linkedin.com/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+          </span>
+          <span>
+            <a href="https://www.youtube.com/">
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
+          </span>
+          <span>
+            <a href="https://www.instagram.com/">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </span>
+          <span>
+            <a href="https://twitter.com/">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </span>
+          <span>
+            <a href="https://www.tiktok.com/">
+              <FontAwesomeIcon icon={faTiktok} />
+            </a>
+          </span>
         </div>
       </div>
+
     </>
   );
 }

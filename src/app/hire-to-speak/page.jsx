@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Styles from "@/styles/hire-to-speak.module.css";
 import Head from "next/head";
+import ButtonSpinner from "@/components/ButtonSpinner";
 
 const validationSchema = Yup.object({
     firstName: Yup.string().required("Required"),
@@ -18,108 +20,193 @@ const validationSchema = Yup.object({
 });
 
 export default function HireToSpeak() {
+    const [loading, setLoading] = useState(false);
+    const [successPopup, setSuccessPopup] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
     return (
         <>
-        <Head>
-            <title>Hire to Speak_Whittington Consulting</title>
-        </Head>
-        <section className={Styles.HiretospeakSection}>
-            <h2 className="text-center">Hire to Speak</h2>
-            <div className="container">
-                <div className={Styles.HTPForm}>
-                    <Formik
-                        initialValues={{
-                            firstName: "",
-                            lastName: "",
-                            email: "",
-                            phone: "",
-                            eventDate: "",
-                            eventLocation: "",
-                            audienceSize: "",
-                            eventTopic: "",
-                            additionalInfo: "",
-                        }}
-                        validationSchema={validationSchema}
-                        onSubmit={(values, { resetForm }) => {
-                            // console.log(values);
-                            resetForm();
-                        }}
-                    >
-                        {() => (
-                            <Form className="row g-3">
-                                {/* First 6 inputs → col-6 */}
-                                <div className="col-md-6">
-                                    <label className="form-label">First Name <span className="text-danger">*</span></label>
-                                    <Field name="firstName" className="form-control" />
-                                    <ErrorMessage name="firstName" component="div" className="text-danger" />
-                                </div>
+            <Head>
+                <title>Hire to Speak | Whittington Consulting</title>
+            </Head>
 
-                                <div className="col-md-6">
-                                    <label className="form-label">Last Name <span className="text-danger">*</span></label>
-                                    <Field name="lastName" className="form-control" />
-                                    <ErrorMessage name="lastName" component="div" className="text-danger" />
-                                </div>
+            <section className={Styles.HiretospeakSection}>
+                <h2 className="text-center">Hire to Speak</h2>
 
-                                <div className="col-md-6">
-                                    <label className="form-label">Email <span className="text-danger">*</span></label>
-                                    <Field type="email" name="email" className="form-control" />
-                                    <ErrorMessage name="email" component="div" className="text-danger" />
-                                </div>
+                <div className="container">
+                    <div className={Styles.HTPForm}>
+                        <Formik
+                            initialValues={{
+                                firstName: "",
+                                lastName: "",
+                                email: "",
+                                phone: "",
+                                eventDate: "",
+                                eventLocation: "",
+                                audienceSize: "",
+                                eventTopic: "",
+                                additionalInfo: "",
+                            }}
+                            validationSchema={validationSchema}
+                            onSubmit={async (values, { resetForm }) => {
+                                try {
+                                    setLoading(true);
+                                    setErrorMessage("");
 
-                                <div className="col-md-6">
-                                    <label className="form-label">Phone Number <span className="text-danger">*</span></label>
-                                    <Field name="phone" className="form-control" />
-                                    <ErrorMessage name="phone" component="div" className="text-danger" />
-                                </div>
+                                    const res = await fetch("/api/hire-to-speak", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify(values),
+                                    });
 
-                                <div className="col-md-6">
-                                    <label className="form-label">Event Date <span className="text-danger">*</span></label>
-                                    <Field type="date" name="eventDate" className="form-control" />
-                                    <ErrorMessage name="eventDate" component="div" className="text-danger" />
-                                </div>
+                                    if (!res.ok) {
+                                        throw new Error("Server error");
+                                    }
 
-                                <div className="col-md-6">
-                                    <label className="form-label">Event Location <span className="text-danger">*</span></label>
-                                    <Field name="eventLocation" className="form-control" />
-                                    <ErrorMessage name="eventLocation" component="div" className="text-danger" />
-                                </div>
+                                    const text = await res.text();
+                                    const data = text ? JSON.parse(text) : {};
 
-                                {/* Remaining inputs → col-12 */}
-                                <div className="col-12">
-                                    <label className="form-label">Audience Size <span className="text-danger">*</span></label>
-                                    <Field as="select" name="audienceSize" className="form-control">
-                                        <option value="">Select audience size</option>
-                                        <option value="0-100">0–100</option>
-                                        <option value="100-500">100–500</option>
-                                        <option value="500-1000">500–1000</option>
-                                        <option value="1000+">1000+</option>
-                                    </Field>
-                                    <ErrorMessage name="audienceSize" component="div" className="text-danger" />
-                                </div>
+                                    if (data.success) {
+                                        resetForm(); // ✅ only reset on success
+                                        setSuccessPopup(true);
+                                    } else {
+                                        setErrorMessage("Something went wrong. Please try again.");
+                                    }
 
-                                <div className="col-12">
-                                    <label className="form-label">Event Theme / Topic <span className="text-danger">*</span></label>
-                                    <Field name="eventTopic" className="form-control" />
-                                    <ErrorMessage name="eventTopic" component="div" className="text-danger" />
-                                </div>
+                                } catch (error) {
+                                    console.error("Submission error:", error);
+                                    setErrorMessage("Server error. Please try again.");
+                                } finally {
+                                    setLoading(false);
+                                }
+                            }}
+                        >
+                            {() => (
+                                <Form className="row g-3">
 
-                                <div className="col-12">
-                                    <label className="form-label">Additional Information / Comments <span className="text-danger">*</span></label>
-                                    <Field as="textarea" rows="4" name="additionalInfo" className="form-control" />
-                                    <ErrorMessage name="additionalInfo" component="div" className="text-danger" />
-                                </div>
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            First Name <span className="text-danger">*</span>
+                                        </label>
+                                        <Field name="firstName" className="form-control" />
+                                        <ErrorMessage name="firstName" component="div" className="text-danger" />
+                                    </div>
 
-                                <div className="col-12 text-center">
-                                    <button type="submit" className=" px-5">
-                                        Submit Request
-                                    </button>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik>
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            Last Name <span className="text-danger">*</span>
+                                        </label>
+                                        <Field name="lastName" className="form-control" />
+                                        <ErrorMessage name="lastName" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            Email <span className="text-danger">*</span>
+                                        </label>
+                                        <Field type="email" name="email" className="form-control" />
+                                        <ErrorMessage name="email" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            Phone Number <span className="text-danger">*</span>
+                                        </label>
+                                        <Field name="phone" className="form-control" />
+                                        <ErrorMessage name="phone" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            Event Date <span className="text-danger">*</span>
+                                        </label>
+                                        <Field type="date" name="eventDate" className="form-control" />
+                                        <ErrorMessage name="eventDate" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <label className="form-label">
+                                            Event Location <span className="text-danger">*</span>
+                                        </label>
+                                        <Field name="eventLocation" className="form-control" />
+                                        <ErrorMessage name="eventLocation" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className="form-label">
+                                            Audience Size <span className="text-danger">*</span>
+                                        </label>
+                                        <Field as="select" name="audienceSize" className="form-control">
+                                            <option value="">Select audience size</option>
+                                            <option value="0-100">0–100</option>
+                                            <option value="100-500">100–500</option>
+                                            <option value="500-1000">500–1000</option>
+                                            <option value="1000+">1000+</option>
+                                        </Field>
+                                        <ErrorMessage name="audienceSize" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className="form-label">
+                                            Event Theme / Topic <span className="text-danger">*</span>
+                                        </label>
+                                        <Field name="eventTopic" className="form-control" />
+                                        <ErrorMessage name="eventTopic" component="div" className="text-danger" />
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className="form-label">
+                                            Additional Information <span className="text-danger">*</span>
+                                        </label>
+                                        <Field
+                                            as="textarea"
+                                            rows="4"
+                                            name="additionalInfo"
+                                            className="form-control"
+                                        />
+                                        <ErrorMessage name="additionalInfo" component="div" className="text-danger" />
+                                    </div>
+
+                                    {errorMessage && (
+                                        <div className="col-12 text-center text-danger">
+                                            {errorMessage}
+                                        </div>
+                                    )}
+
+                                    <div className="col-12 text-center">
+                                        <button
+                                            type="submit"
+                                            className="px-5"
+                                            disabled={loading}
+                                        >
+                                            {loading ? <ButtonSpinner /> : "Submit Request"}
+                                        </button>
+                                    </div>
+
+                                </Form>
+                            )}
+                        </Formik>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* ✅ Success Popup */}
+            {successPopup && (
+                <div className={Styles.popupOverlay}>
+                    <div className={Styles.popupBox}>
+                        <h3>Thank You!</h3>
+                        <p>
+                            Your speaker request has been successfully submitted.
+                            Our team will contact you within 24–48 hours.
+                        </p>
+                        <button onClick={() => setSuccessPopup(false)}>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

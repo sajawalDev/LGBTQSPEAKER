@@ -139,6 +139,7 @@ import { useState, useEffect } from "react";
 import Styles from "@/styles/Reviews.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faPlay } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function ReviewsClient({ data }) {
   const videos = data.videos || [];
@@ -222,6 +223,7 @@ export default function ReviewsClient({ data }) {
           </div>
 
           {/* RIGHT – TESTIMONIALS */}
+          {/* RIGHT – TESTIMONIALS */}
           {testimonials.length > 0 && (
             <div
               className={Styles.TestimonialsReviews}
@@ -241,9 +243,16 @@ export default function ReviewsClient({ data }) {
 
                 <h4>{testimonials[activeTestimonial].name}</h4>
                 <span>{testimonials[activeTestimonial].company}</span>
+
+                {/* ✅ View All centered below company */}
+                <div className={Styles.viewAllWrapper}>
+                  <Link href="/testimonials" className={Styles.viewAllBtn}>
+                    View All
+                  </Link>
+                </div>
               </div>
 
-              {/* DOTS */}
+              {/* ✅ DOTS (only dots now) */}
               <div className={Styles.Dots}>
                 {testimonials.map((_, i) => (
                   <span
@@ -256,6 +265,7 @@ export default function ReviewsClient({ data }) {
               </div>
             </div>
           )}
+
         </div>
       </div>
     </section>
