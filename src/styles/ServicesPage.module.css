@@ -24,6 +24,7 @@
   color: #444;
 }
 
+
 .active {
   color: #cf92f4;
   border-bottom: 3px solid #cf92f4;
@@ -49,4 +50,17 @@
   padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
+}
+
+@media(max-width:500px) {
+  .servicesTabs {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 50px;
+  }
+
+  .serviceItem {
+    font-size: 14px;
+  }
 }

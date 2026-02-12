@@ -82,20 +82,28 @@ export default function AdminSettingsPage() {
       return;
     }
 
-    router.push("/admin/login");
+    window.location.href = "/admin/login";
   };
-
   return (
     <div
       style={{
-        minHeight: "70vh",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background: "#f9fafb",
       }}
     >
-      <div style={{ width: 360 }}>
-        <h3 style={{ marginBottom: 20 }}>
+      <div
+        style={{
+          width: "100%",
+          background: "#ffffff",
+          padding: "25px",
+          boxSizing: "border-box",
+        }}
+        className="responsive-card"
+      >
+        <h3 style={{ marginBottom: 20, textAlign: "center" }}>
           {step === 1 ? "Verify Admin Identity" : "Update Credentials"}
         </h3>
 
@@ -164,6 +172,17 @@ export default function AdminSettingsPage() {
           </p>
         )}
       </div>
+
+      <style jsx>{`
+      @media (min-width: 768px) {
+        .responsive-card {
+          max-width: 420px;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+      }
+    `}</style>
     </div>
   );
+
 }
