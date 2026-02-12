@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import FullScreenSpinner from "@/components/FullScreenSpinner";
 export default function AdminPagesList() {
     const [pages, setPages] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export default function AdminPagesList() {
         setPages((prev) => prev.filter((p) => p.slug !== slug));
     }
 
-    if (loading) return <p>Loading pages...</p>;
+    if (loading) return <FullScreenSpinner/>;
 
     return (
         <div className="container py-4">
