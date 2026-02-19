@@ -233,6 +233,32 @@
 .closeBtn {
   color: #e84393;
 }
+/* ACTIVE DESKTOP LINK */
+.activeLink {
+  color: #CF92F4 !important;
+  position: relative;
+}
+
+.activeLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #CF92F4;
+}
+
+/* ACTIVE MOBILE ITEM */
+.activeMobile a {
+  color: #CF92F4 !important;
+}
+
+.activeMobile::after {
+  transform: scaleX(1) !important;
+  background-color: #CF92F4;
+}
+
 @media (max-width: 1024px) {
   .ctaBtn {
     display: none;

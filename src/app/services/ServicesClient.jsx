@@ -20,9 +20,8 @@ export default function ServicesClient({ services }) {
         {services.map((service) => (
           <button
             key={service._id}
-            className={`${Styles.serviceItem} ${
-              activeService._id === service._id ? Styles.active : ""
-            }`}
+            className={`${Styles.serviceItem} ${activeService._id === service._id ? Styles.active : ""
+              }`}
             onClick={() => setActiveService(service)}
           >
             {service.name}
@@ -34,14 +33,23 @@ export default function ServicesClient({ services }) {
       <div className={Styles.serviceContent}>
         {activeService.heading && <h2>{activeService.heading}</h2>}
         {activeService.subHeading && (
-          <p className={Styles.subHeading}>
+          <h4 className={Styles.subHeading}>
             {activeService.subHeading}
-          </p>
+          </h4>
         )}
 
         {activeService.blocks?.map((block, index) => {
           if (block.type === "heading") {
-            return <h3 key={index}>{block.value}</h3>;
+            return <h3 key={index} className="my-4">{block.value}</h3>;
+          }
+          if (block.type === "list") {
+            return (
+              <ul key={index} className="fw-semibold ps-3">
+                {(block.items || []).map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            );
           }
 
           if (block.type === "paragraph") {
@@ -58,6 +66,8 @@ export default function ServicesClient({ services }) {
               />
             );
           }
+
+
 
           return null;
         })}

@@ -3,15 +3,20 @@ import mongoose from "mongoose";
 const ContentBlockSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ["heading", "paragraph", "image"],
+    enum: ["heading", "paragraph", "image", "list"],
     required: true,
   },
+
   value: String,
+
+  items: [String], 
+
   image: {
     url: String,
     publicId: String,
   },
 });
+
 
 const ServiceSchema = new mongoose.Schema(
   {

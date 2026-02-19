@@ -1,20 +1,25 @@
+/* ===== SECTION ===== */
 .ServicespageSection {
-  padding: 90px 0;
+  padding: 90px 20px;
   text-align: center;
 }
 
 .pageHeading {
   font-size: 42px;
   margin-bottom: 40px;
+  font-weight: 700;
 }
 
+/* ===== TABS ===== */
 .servicesTabs {
   display: flex;
   justify-content: center;
   gap: 40px;
   margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 
+/* Tab button */
 .serviceItem {
   background: none;
   border: none;
@@ -22,26 +27,69 @@
   cursor: pointer;
   padding-bottom: 6px;
   color: #444;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
+/* hover */
+.serviceItem:hover {
+  color: #cf92f4;
+}
 
+/* active tab */
 .active {
   color: #cf92f4;
   border-bottom: 3px solid #cf92f4;
 }
 
+/* ===== CONTENT ===== */
 .serviceContent {
   max-width: 900px;
   margin: auto;
   text-align: left;
+  line-height: 1.7;
 }
 
-.serviceContent img {
+.serviceContent h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.serviceContent h3 {
+  font-size: 22px;
+}
+
+.serviceContent p {
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* subheading */
+.subHeading {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* images */
+.serviceContent img,
+.serviceImage {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   margin: 30px 0;
 }
 
+/* lists */
+.serviceContent ul {
+  padding-left: 18px;
+  margin-bottom: 18px;
+}
+
+.serviceContent li {
+  margin-bottom: 6px;
+}
+
+/* CTA button */
 .ctaButton {
   display: inline-block;
   margin-top: 30px;
@@ -50,17 +98,98 @@
   padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
-@media(max-width:500px) {
+.ctaButton:hover {
+  background: #b777e8;
+}
+
+/* ========================= */
+/* ===== TABLET VIEW ===== */
+/* ========================= */
+@media (max-width: 992px) {
+  .pageHeading {
+    font-size: 34px;
+  }
+
+  .serviceContent h2 {
+    font-size: 26px;
+  }
+
+  .serviceContent h3 {
+    font-size: 20px;
+  }
+
   .servicesTabs {
-    display: flex;
-    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* ========================= */
+/* ===== MOBILE VIEW ===== */
+/* ========================= */
+@media (max-width: 768px) {
+
+  .ServicespageSection {
+    padding: 60px 16px;
+  }
+
+  .pageHeading {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  /* scrollable tabs */
+  .servicesTabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     gap: 14px;
-    margin-bottom: 50px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .servicesTabs::-webkit-scrollbar {
+    display: none;
   }
 
   .serviceItem {
     font-size: 14px;
+    padding: 6px 10px;
   }
+
+  .serviceContent h2 {
+    font-size: 22px;
+  }
+
+  .serviceContent h3 {
+    font-size: 18px;
+  }
+
+  .subHeading {
+    font-size: 15px;
+  }
+
+  .ctaButton {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ========================= */
+/* ===== SMALL MOBILE ===== */
+/* ========================= */
+@media (max-width: 480px) {
+
+  .pageHeading {
+    font-size: 24px;
+  }
+
+  .serviceContent {
+    font-size: 15px;
+  }
+
 }

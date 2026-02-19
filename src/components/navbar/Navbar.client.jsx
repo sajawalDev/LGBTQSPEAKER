@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Styles from "@/styles/Navbar.module.css";
 import HeadLine from "../Ui/HeadLine/HeadLine";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -23,6 +24,7 @@ export default function NavbarClient() {
     const { data: navbar } = useSWR("/api/navbar", fetcher, {
         refreshInterval: 1000, // check every 1 second
     });
+    const pathname = usePathname();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -58,8 +60,14 @@ export default function NavbarClient() {
                                 .sort((a, b) => a.order - b.order)
                                 .map((item) => (
                                     <li key={item._id}>
-                                        <Link href={item.href}>{item.label}</Link>
+                                        <Link
+                                            href={item.href}
+                                            className={pathname === item.href ? Styles.activeLink : ""}
+                                        >
+                                            {item.label}
+                                        </Link>
                                     </li>
+
                                 ))}
                         </ul>
                     </nav>
@@ -103,7 +111,10 @@ export default function NavbarClient() {
 
                 <ul>
                     {navbar.menuItems?.map((item) => (
-                        <li key={item._id}>
+                        <li
+                            key={item._id}
+                            className={pathname === item.href ? Styles.activeMobile : ""}
+                        >
                             <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
                                 {item.label}
                             </Link>

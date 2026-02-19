@@ -44,13 +44,16 @@ export default function BannerClient({ slides }) {
                     </div>
 
                     <div className={Styles.descBox}>
-                        {slide.buttonText && slide.buttonLink && (
-                            <a href={slide.buttonLink} className="btn btn-primary mt-2">
-                                {slide.buttonText}
-                            </a>
-                        )}
                         <p>{slide.desc}</p>
                     </div>
+
+                    {slide.buttonText && slide.buttonLink && (
+                        <a href={slide.buttonLink} className={Styles.slideBtn}>
+                            {slide.buttonText}
+                        </a>
+                    )}
+
+
                 </div>
             ))}
 

@@ -10,8 +10,19 @@ export default function AdminServicesEditor() {
   useEffect(() => {
     fetch("/api/admin/services")
       .then((r) => r.json())
-      .then(setServices);
+      .then((data) =>
+        setServices(
+          data.map((s) => ({
+            ...s,
+            blocks: (s.blocks || []).map((b) => ({
+              ...b,
+              items: b.type === "list" ? b.items || [""] : undefined,
+            })),
+          }))
+        )
+      );
   }, []);
+
 
   const addService = () => {
     setServices([
@@ -34,9 +45,19 @@ export default function AdminServicesEditor() {
 
   const addBlock = (i, type) => {
     const copy = [...services];
-    copy[i].blocks.push({ type, value: "" });
+
+    if (!copy[i].blocks) copy[i].blocks = [];
+
+    copy[i].blocks = [
+      ...copy[i].blocks,
+      type === "list"
+        ? { type, items: [""] }
+        : { type, value: "" }
+    ];
+
     setServices(copy);
   };
+
 
   const saveService = async (service) => {
     await fetch("/api/admin/services", {
@@ -111,7 +132,102 @@ export default function AdminServicesEditor() {
               >
                 + Image
               </button>
+              <button
+                className="btn btn-outline-secondary"
+                onClick={() => addBlock(i, "list")}
+              >
+                + List
+              </button>
+
             </div>
+            {s.blocks?.map((block, bi) => (
+              <div key={bi} className="mb-2">
+                {block.type === "heading" && (
+                  <input
+                    className="form-control"
+                    placeholder="Heading text"
+                    value={block.value}
+                    onChange={(e) => {
+                      const copy = [...services];
+                      copy[i].blocks[bi].value = e.target.value;
+                      setServices(copy);
+                    }}
+                  />
+                )}
+
+                {block.type === "paragraph" && (
+                  <textarea
+                    className="form-control"
+                    placeholder="Paragraph text"
+                    value={block.value}
+                    onChange={(e) => {
+                      const copy = [...services];
+                      copy[i].blocks[bi].value = e.target.value;
+                      setServices(copy);
+                    }}
+                  />
+                )}
+
+                {block.type === "image" && (
+                  <input
+                    className="form-control"
+                    placeholder="Image URL"
+                    value={block.value}
+                    onChange={(e) => {
+                      const copy = [...services];
+                      copy[i].blocks[bi].value = e.target.value;
+                      setServices(copy);
+                    }}
+                  />
+                )}
+                {block.type === "list" && (
+                  <div className="border rounded p-3 bg-light">
+                    <strong className="d-block mb-2">Unordered List</strong>
+
+                    {(block.items || []).map((item, li) => (
+                      <div key={li} className="input-group mb-2">
+                        <span className="input-group-text fw-bold">•</span>
+
+                        <input
+                          className="form-control"
+                          placeholder="List item"
+                          value={item}
+                          onChange={(e) => {
+                            const copy = [...services];
+                            copy[i].blocks[bi].items[li] = e.target.value;
+                            setServices(copy);
+                          }}
+                        />
+
+                        <button
+                          className="btn btn-outline-danger"
+                          onClick={() => {
+                            const copy = [...services];
+                            copy[i].blocks[bi].items.splice(li, 1);
+                            setServices(copy);
+                          }}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+
+                    <button
+                      className="btn btn-sm btn-outline-primary"
+                      onClick={() => {
+                        const copy = [...services];
+                        copy[i].blocks[bi].items.push("");
+                        setServices(copy);
+                      }}
+                    >
+                      + Add Item
+                    </button>
+                  </div>
+                )}
+
+              </div>
+            ))}
+
 
             <input
               className="form-control mb-2"
