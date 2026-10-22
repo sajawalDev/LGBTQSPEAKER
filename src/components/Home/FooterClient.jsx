@@ -162,7 +162,11 @@ export default function Footer({ footer }) {
           <div className={Styles.cContetent}>
             <p>
               © 2023 · Whittington Consulting – Website Design & Marketing by{" "}
-              <b>Sajawallabs</b>
+              <b>
+                <a href="https://www.bossdigitalsol.com/">
+                  BOSS Digital Solutions
+                </a>
+              </b>
             </p>
           </div>
 
